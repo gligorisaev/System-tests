@@ -9,15 +9,21 @@ Suite Teardown         SSHLibrary.Close All Connections
 ${HOST}           192.168.0.37
 ${USERNAME}       pi
 ${PASSWORD}       Alex210295
+${version}
 
 *** Tasks ***
-
 Install thin-edge.io
     ${output}=    Execute Command    curl -fsSL https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/get-thin-edge_io.sh | sudo sh -s    #running the script for installing latest version of tedge
     ${line}    Get Line    ${output}    2    #getting the version which is installed out of the log
-    ${fetch}    Fetch From Right    ${line}    :     #Cutting log output in order only to keep version number
-    Log    ${fetch}    #log of the output
+    ${version}    Fetch From Right    ${line}    :     #Cutting log output in order only to keep version number
+    Set Suite Variable    ${version}
+    Log    ${version}    #log of the output
     Log    ${output}    #log of the output
+
+call tedge -V
+    ${output}=    Execute Command    tedge -V    #execute command to check version
+    Should Contain    ${output}    ${version}
+    Log    ${output}
 
 *** Keywords ***
 
