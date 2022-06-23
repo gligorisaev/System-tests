@@ -26,7 +26,22 @@ call tedge -V
     Log    ${output}
 
 call tedge -h
-     ${output}=    Execute Command    tedge -h    #execute command to call help
+    ${output}=    Execute Command    tedge -h    #execute command to call help
+    Should Contain    ${output}    USAGE:    #checks if USAGE: exists
+    Should Contain    ${output}    OPTIONS:    #checks if OPTIONS: exists
+    Should Contain    ${output}    SUBCOMMANDS:    #checks if SUBCOMMANDS: exists
+    Log    ${output}
+
+call tedge -h -V
+    ${output}=    Execute Command    tedge -h -V   #execute command to call help and check the version at same time
+    Should Contain    ${output}    ${version}    #checking that the output of tedge -V returns the version which was installed
+    Should Contain    ${output}    USAGE:    #checks if USAGE: exists
+    Should Contain    ${output}    OPTIONS:    #checks if OPTIONS: exists
+    Should Contain    ${output}    SUBCOMMANDS:    #checks if SUBCOMMANDS: exists
+    Log    ${output}
+
+call tedge help
+    ${output}=    Execute Command    tedge help    #execute command to call help
     Should Contain    ${output}    USAGE:    #checks if USAGE: exists
     Should Contain    ${output}    OPTIONS:    #checks if OPTIONS: exists
     Should Contain    ${output}    SUBCOMMANDS:    #checks if SUBCOMMANDS: exists
