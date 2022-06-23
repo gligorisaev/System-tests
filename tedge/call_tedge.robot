@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SSHLibrary
 Library    String
-Library    Dialogs
 
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
