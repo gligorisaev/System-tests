@@ -22,11 +22,17 @@ Install thin-edge.io
 
 call tedge -V
     ${output}=    Execute Command    tedge -V    #execute command to check version
-    Should Contain    ${output}    ${version}
+    Should Contain    ${output}    ${version}    #checking that the output of tedge -V returns the version which was installed
+    Log    ${output}
+
+call tedge -h
+     ${output}=    Execute Command    tedge -h    #execute command to call help
+    Should Contain    ${output}    USAGE:    #checks if USAGE: exists
+    Should Contain    ${output}    OPTIONS:    #checks if OPTIONS: exists
+    Should Contain    ${output}    SUBCOMMANDS:    #checks if SUBCOMMANDS: exists
     Log    ${output}
 
 *** Keywords ***
-
 Open Connection And Log In
    SSHLibrary.Open Connection     ${HOST}
    SSHLibrary.Login               ${USERNAME}        ${PASSWORD}
