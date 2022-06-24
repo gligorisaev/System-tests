@@ -47,10 +47,6 @@ call tedge help
     Should Contain    ${output}    SUBCOMMANDS:    #checks if SUBCOMMANDS: exists
     Log    ${output}
 
-tedge config list
-    ${rc}    Execute Command    tedge config list    return_stdout=False    return_rc=True    #executing tedgeconfig list and expect return code 0
-    Should Be Equal As Integers    ${rc}    0
-    Log    ${rc}
 
 *** Keywords ***
 Open Connection And Log In
