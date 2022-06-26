@@ -1,4 +1,11 @@
 *** Settings ***
+Documentation    Purpose of this test is to verify that the proper version number
+...              will be shown by using the tedge -V command.
+...              By executing the tedge -h command that USAGE, OPTIONS and SUBCOMMANDS
+...              will be shown
+...              By executing the tedge -h -V command combination of both previous
+...              commands will be shown
+
 Library    SSHLibrary
 Library    String
 
