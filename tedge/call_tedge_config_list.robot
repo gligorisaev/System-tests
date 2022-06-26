@@ -15,7 +15,6 @@ Documentation    Purpose of this test is to verify that the tedge config list an
 ...              Set new run.path and return to default value
 
 Library    SSHLibrary
-Library    String
 
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
