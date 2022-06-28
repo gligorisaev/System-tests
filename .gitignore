@@ -6,6 +6,7 @@ log.html
 output.xml
 report.html
 selenium-screenshot-*.png
+playwright-log.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/robotframework
 
