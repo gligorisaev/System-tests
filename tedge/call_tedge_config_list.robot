@@ -23,7 +23,6 @@ Suite Teardown         SSHLibrary.Close All Connections
 ${HOST}           192.168.0.37    #Insert the IP address if the default should not be used
 ${USERNAME}       pi    #Insert the username if the default should not be used
 ${PASSWORD}       Alex210295    #Insert the password if the default should not be used
-${version}
 
 *** Tasks ***
 tedge config list
