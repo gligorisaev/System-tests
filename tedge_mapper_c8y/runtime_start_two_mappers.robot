@@ -22,7 +22,7 @@ start tedge-mapper
     Should Be Equal As Integers    ${rc}    0
 start tedge-mapper second time
     ${output}    Execute Command    sudo -u tedge tedge_mapper c8y    #executing start tedge-mapper for second time
-    Should Contain    ${output}    Another instance of tedge-mapper-c8y is running.
+    Should Contain    ${output}    Another instance of tedge-mapper-c8y is running.    
 stop tedge-mapper
     ${rc}    Execute Command    sudo systemctl stop tedge-mapper-c8y    return_stdout=False    return_rc=True    #executing stop tedge-mapper and expect return code 0
     Should Be Equal As Integers    ${rc}    0
