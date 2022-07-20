@@ -35,7 +35,7 @@ tedge_connect_test_sm_services
     Should Contain    ${stdout}    tedge-agent service successfully started and enabled!    #Expected message
     Should Contain    ${stdout}    tedge-mapper-c8y service successfully started and enabled!    #Expected message
     Log    ${stdout}
-tedge_connect_test_sm_services
+tedge_disconnect_test_sm_services
     ${stdout}    Execute Command    sudo tedge disconnect c8y    #Disonnecting from Cumulocity IoT
     Should Contain    ${stdout}    Cumulocity Bridge successfully disconnected!    #Expected message
     Should Contain    ${stdout}    tedge-agent service successfully stopped and disabled!    #Expected message
