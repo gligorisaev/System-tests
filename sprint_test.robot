@@ -10,7 +10,7 @@ Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
 ${HOST}           crypt:zl4vjWn8YTpt1b7nPF8J/XeQ82z/M+rjRjpXD5zXdE25PYB3BmXUY4fq/VuO5LrY6eDgMiAd2JKOei56RWMR
-${USERNAME}       crypt:t05jEmE9JJGKUaTTo9trpL35lOnlreuFgnZjJfPVhjvwztNh20yXBa+GYjbwP32lR38=
+${USERNAME}       pi
 ${PASSWORD}       crypt:jXjF1xOnsMO5iCan2D1C16blhhf5fB4PrfG7+oY1JD40m7MRz733n/FO1JXz8rgzZsTPrt2/+cs=
 ${DeviceID}       Rpi3lite
 ${Version}        0.*
