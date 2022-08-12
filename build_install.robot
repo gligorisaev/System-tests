@@ -4,25 +4,24 @@ Library    OperatingSystem
 Library    Dialogs
 Library    SSHLibrary
 Library    DateTime
-Library    CryptoLibrary
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}           crypt:rN9tNQ1cYW04RxR1ccCqOlwsarGzd5QveTDvzPRTtmGujS6lobX3FJYRZgjnr79rfkMu/G/g4j6q16IB/qvI
-${USERNAME}       crypt:fLklEq/G+xVzQYx4mrrCuAsktv971kzPNxQUGyI7v07equOMhVEvbaYDYw9lw5XqYhY=
-${PASSWORD}       thinedge
+${HOST}           
+${USERNAME}       
+${PASSWORD}       
 ${DeviceID}       Rpi3lite
 ${Version}        0.*
 ${download_dir}    /Users/glis/Downloads
-${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    crypt:11sWf3a1nlURyhoZC3o8EYzF1mIE4enR2/PkOHh4SwiSiaSwtgBIxNzQ2bksIuXGlxQIYicahHsOzQsabyokSBe5ffst
-${pass_git}    crypt:fJO+DzRjsgfELr0CbQlt6PaB8yUOPKdherxOcbhCOi8qrZhYKbBBPrVtZxA+RV03Jfq25LMSRBXzF40Oe8vWUg==
+${url_dow}    
+${user_git}    
+${pass_git}    
 ${FILENAME}
 ${DIRECTORY}    /Users/glis/Downloads/
-${url}    https://gligor.latest.stage.c8y.io/
-${user}    gligor
-${pass}    Ian@240821
+${url}    
+${user}    
+${pass}    
 ${BUILD}
 ${ARCH}
 ${dir}
