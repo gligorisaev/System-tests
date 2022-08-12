@@ -4,6 +4,7 @@ Library    OperatingSystem
 Library    Dialogs
 Library    SSHLibrary
 Library    DateTime
+Library    CryptoLibrary
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
