@@ -8,15 +8,15 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}           192.168.100.120
-${USERNAME}       pi
+${HOST}           crypt:rN9tNQ1cYW04RxR1ccCqOlwsarGzd5QveTDvzPRTtmGujS6lobX3FJYRZgjnr79rfkMu/G/g4j6q16IB/qvI
+${USERNAME}       crypt:fLklEq/G+xVzQYx4mrrCuAsktv971kzPNxQUGyI7v07equOMhVEvbaYDYw9lw5XqYhY=
 ${PASSWORD}       thinedge
 ${DeviceID}       Rpi3lite
 ${Version}        0.*
 ${download_dir}    /Users/glis/Downloads
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    gligorisaev@gmail.com
-${pass_git}    IanIsaev24082021
+${user_git}    crypt:11sWf3a1nlURyhoZC3o8EYzF1mIE4enR2/PkOHh4SwiSiaSwtgBIxNzQ2bksIuXGlxQIYicahHsOzQsabyokSBe5ffst
+${pass_git}    crypt:fJO+DzRjsgfELr0CbQlt6PaB8yUOPKdherxOcbhCOi8qrZhYKbBBPrVtZxA+RV03Jfq25LMSRBXzF40Oe8vWUg==
 ${FILENAME}
 ${DIRECTORY}    /Users/glis/Downloads/
 ${url}    https://gligor.latest.stage.c8y.io/
