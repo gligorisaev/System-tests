@@ -65,7 +65,7 @@ uninstall tedge script
     Execute Command    ./uninstall_script.sh purge
 
 # Remove device from Cumulocity
-    Open Browser    ${url}
+    New Page    ${url}
     Wait For Elements State    //button[normalize-space()='Log in']    visible
     Type Text    id=user    ${user}
     Type Text    id=password    ${pass}
@@ -100,7 +100,7 @@ install tedge
     SSHLibrary.Execute Command    rm *.zip
 # Download the Package
     New Context    acceptDownloads=True
-    Open Browser    ${url_dow} 
+    New Page    ${url_dow} 
     Click    //a[normalize-space()='Sign in']
     Fill Text    //input[@id='login_field']    ${user_git}
     Fill Text    //input[@id='password']    ${pass_git}
