@@ -10,19 +10,19 @@ Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
 ${HOST}           192.168.100.120
-${USERNAME}       pi
-${PASSWORD}       thinedge
+${USERNAME}       
+${PASSWORD}       
 ${DeviceID}       Rpi3lite
 ${Version}        0.*
 ${download_dir}    /home/pi/download
 ${url_dow}     https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    gligorisaev@gmail.com
-${pass_git}    IanIsaev24082021
+${user_git}    
+${pass_git}    
 ${FILENAME}
 ${DIRECTORY}    /home/pi/download
-${url}    https://gligor.latest.stage.c8y.io/
-${user}    gligor
-${pass}    Ian@240821
+${url}    
+${user}    
+${pass}    
 ${BUILD}
 ${ARCH}
 ${dir}
