@@ -9,20 +9,20 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}           192.168.100.120
-${USERNAME}       
-${PASSWORD}       
+${HOST}    crypt:2gqzBhss/4dJeziEoIiNQphS61l6UnbmZXezKZ4bU1KCmUozfrOAEVyeZcO6+nnIb0x6yJnm4dO7Ae2+HBy4
+${USERNAME}    crypt:oKtnJPm8I43EUvE1z2dxa87UPoObSxKZ4XuMheZuGiBADPZlppHknIo9evghNvCgf7M=    
+${PASSWORD}    crypt:5UGjQfM9NKfGFZOrO6ivMzD4PT6aYHl7e51X8/g0XS8LCmtBK5hBrAYccAlTItE6kbrjnoq8978=  
 ${DeviceID}       Rpi3lite
 ${Version}        0.*
 ${download_dir}    /home/pi/download
 ${url_dow}     https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    
-${pass_git}    
+${user_git}    crypt:eLyh1H7GqGBR4a+S8GD1BC+2sGyZgZgZffIRqFNOLyuPlZ215jFp+x6vljbPVcLIAezHzIKV0Ll/V+TkncB84A/Y/df1
+${pass_git}    crypt:QR6sm+qtIpQyba0W80FYsdXWUi+IFSx00KY2IDMUBnT+okliM8UxL2xtuc17ce3hvs5DUF1N5OB2LqnKWFhJ8w==
 ${FILENAME}
 ${DIRECTORY}    /home/pi/download
-${url}    
-${user}    
-${pass}    
+${url}    crypt:PWwW5fJfxKPsguGoPTgnOQvatZPxHQZNQsxMGcrQvyoNSd/WlBeQInmYA4s3jWJ79hVwg4XRmlSHZ3VEbnNcmlqcJBzxWA4qlj/xCFZGIAa+SrY=
+${user}    crypt:/hNeN8ERELHDbpPcT+/iTj0tA+NwZr54jSRGicuejkBFSo9jNk4Bd6lFvVB+f57s1Yi9r44s
+${pass}    crypt:mdDKVUZG+4dBZoN9QnGESZ7N+A5Zo1RbDxktuPVQwlvvDPfvIC+/4qFq19d61v+38oj4rXPKNOC0Pg==
 ${BUILD}
 ${ARCH}
 ${dir}
