@@ -10,7 +10,7 @@ Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
 ${HOST}    192.168.100.110
-${USERNAME}    crypt:+yberXa5YBBpDU3GW027t4wQiq/D3R//2+PLK/7WtwKauLukguY7zHQpuReHmPj4OV0=    
+${USERNAME}    pi   
 ${PASSWORD}    crypt:jz1ntDRe+A/PXHXm3ZLktZvu6XOtO7mugwgy1dJZSBRCU7B5diEteosE2RwLAWB7qcTZSsQKUlA=  
 ${DeviceID}       SysTest
 ${Version}        0.*
