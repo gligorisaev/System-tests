@@ -16,13 +16,13 @@ ${DeviceID}       SysTest
 ${Version}        0.*
 ${download_dir}    /home/pi/download
 ${url_dow}     https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    crypt:gv/uGulP9+Ef1AfwV0WfQfCeb3i7t5JhM0gKiA81HUIKXWiELBQdbBY1LA5NIxsbXXKrueva3KJ7iNNty7YSqzLNvBin
-${pass_git}    crypt:A81niXupPbX0mUzYmSHR0FIUiG5OmUYq4+Z8SP1OxXVJWNHhpPCa3icqCgSt0wBcsvr3fh9HtDFla+WjmiZDDQ==
+# ${user_git}    crypt:gv/uGulP9+Ef1AfwV0WfQfCeb3i7t5JhM0gKiA81HUIKXWiELBQdbBY1LA5NIxsbXXKrueva3KJ7iNNty7YSqzLNvBin
+# ${pass_git}    crypt:A81niXupPbX0mUzYmSHR0FIUiG5OmUYq4+Z8SP1OxXVJWNHhpPCa3icqCgSt0wBcsvr3fh9HtDFla+WjmiZDDQ==
 ${FILENAME}
 ${DIRECTORY}    /home/pi/download
-${url}    crypt:dQ0P1/gUUWD3ZVUlxjDP39y/6T0CgOpORp0LODrCaSbM0652J3t9PzihEKn5g6pW4VbC4lLH/oU+TnBaYmlrwUIrmmT06YUzIa7n6vCmzP46Jro=
-${user}    crypt:D6TKgnsmQ9O6uxVlysRxrOEFDlNrrUG06o40d3HGgCfZEniCVTfwsfuF/qZjzEo7Xe12RdL5
-${pass}    crypt:eXcdz83K8Celm83yPx3wi5bSKaObxX9pfV8i0RTEbV/faeONsvM3VZi55h3Bi6aUmgXi8waleJb2Jw==
+# ${url}    crypt:dQ0P1/gUUWD3ZVUlxjDP39y/6T0CgOpORp0LODrCaSbM0652J3t9PzihEKn5g6pW4VbC4lLH/oU+TnBaYmlrwUIrmmT06YUzIa7n6vCmzP46Jro=
+# ${user}    crypt:D6TKgnsmQ9O6uxVlysRxrOEFDlNrrUG06o40d3HGgCfZEniCVTfwsfuF/qZjzEo7Xe12RdL5
+# ${pass}    crypt:eXcdz83K8Celm83yPx3wi5bSKaObxX9pfV8i0RTEbV/faeONsvM3VZi55h3Bi6aUmgXi8waleJb2Jw==
 ${BUILD}
 ${ARCH}
 ${dir}
