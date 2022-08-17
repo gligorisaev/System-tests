@@ -10,7 +10,7 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}    192.168.100.110
+${HOST}    192.168.100.120
 ${USERNAME}    pi   
 ${PASSWORD}    crypt:jz1ntDRe+A/PXHXm3ZLktZvu6XOtO7mugwgy1dJZSBRCU7B5diEteosE2RwLAWB7qcTZSsQKUlA=  
 ${DeviceID}       SysTest
