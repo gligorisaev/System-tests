@@ -4,25 +4,25 @@ Library    OperatingSystem
 Library    Dialogs
 Library    SSHLibrary
 Library    DateTime
-#Library    CryptoLibrary
+Library    CryptoLibrary  variable_decryption=True  key_path=/home/pi/QA/System-tests/keys
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}    crypt:2gqzBhss/4dJeziEoIiNQphS61l6UnbmZXezKZ4bU1KCmUozfrOAEVyeZcO6+nnIb0x6yJnm4dO7Ae2+HBy4
-${USERNAME}    crypt:oKtnJPm8I43EUvE1z2dxa87UPoObSxKZ4XuMheZuGiBADPZlppHknIo9evghNvCgf7M=    
-${PASSWORD}    crypt:5UGjQfM9NKfGFZOrO6ivMzD4PT6aYHl7e51X8/g0XS8LCmtBK5hBrAYccAlTItE6kbrjnoq8978=  
-${DeviceID}       Rpi3lite
+${HOST}    crypt:T70LvPsmZgVJPscfRioDHrEd63E/Symp1ayllK1I9zLnWZLOZIg35BIh55EDxVjHcWfLC8dL2uwWQ4q+K4p/
+${USERNAME}    crypt:+yberXa5YBBpDU3GW027t4wQiq/D3R//2+PLK/7WtwKauLukguY7zHQpuReHmPj4OV0=    
+${PASSWORD}    crypt:jz1ntDRe+A/PXHXm3ZLktZvu6XOtO7mugwgy1dJZSBRCU7B5diEteosE2RwLAWB7qcTZSsQKUlA=  
+${DeviceID}       SysTest
 ${Version}        0.*
 ${download_dir}    /home/pi/download
 ${url_dow}     https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    crypt:eLyh1H7GqGBR4a+S8GD1BC+2sGyZgZgZffIRqFNOLyuPlZ215jFp+x6vljbPVcLIAezHzIKV0Ll/V+TkncB84A/Y/df1
-${pass_git}    crypt:QR6sm+qtIpQyba0W80FYsdXWUi+IFSx00KY2IDMUBnT+okliM8UxL2xtuc17ce3hvs5DUF1N5OB2LqnKWFhJ8w==
+${user_git}    crypt:gv/uGulP9+Ef1AfwV0WfQfCeb3i7t5JhM0gKiA81HUIKXWiELBQdbBY1LA5NIxsbXXKrueva3KJ7iNNty7YSqzLNvBin
+${pass_git}    crypt:A81niXupPbX0mUzYmSHR0FIUiG5OmUYq4+Z8SP1OxXVJWNHhpPCa3icqCgSt0wBcsvr3fh9HtDFla+WjmiZDDQ==
 ${FILENAME}
 ${DIRECTORY}    /home/pi/download
-${url}    crypt:PWwW5fJfxKPsguGoPTgnOQvatZPxHQZNQsxMGcrQvyoNSd/WlBeQInmYA4s3jWJ79hVwg4XRmlSHZ3VEbnNcmlqcJBzxWA4qlj/xCFZGIAa+SrY=
-${user}    crypt:/hNeN8ERELHDbpPcT+/iTj0tA+NwZr54jSRGicuejkBFSo9jNk4Bd6lFvVB+f57s1Yi9r44s
-${pass}    crypt:mdDKVUZG+4dBZoN9QnGESZ7N+A5Zo1RbDxktuPVQwlvvDPfvIC+/4qFq19d61v+38oj4rXPKNOC0Pg==
+${url}    crypt:dQ0P1/gUUWD3ZVUlxjDP39y/6T0CgOpORp0LODrCaSbM0652J3t9PzihEKn5g6pW4VbC4lLH/oU+TnBaYmlrwUIrmmT06YUzIa7n6vCmzP46Jro=
+${user}    crypt:D6TKgnsmQ9O6uxVlysRxrOEFDlNrrUG06o40d3HGgCfZEniCVTfwsfuF/qZjzEo7Xe12RdL5
+${pass}    crypt:eXcdz83K8Celm83yPx3wi5bSKaObxX9pfV8i0RTEbV/faeONsvM3VZi55h3Bi6aUmgXi8waleJb2Jw==
 ${BUILD}
 ${ARCH}
 ${dir}
