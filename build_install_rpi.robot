@@ -4,7 +4,7 @@ Library    OperatingSystem
 Library    Dialogs
 Library    SSHLibrary
 Library    DateTime
-Library    CryptoLibrary  variable_decryption=True  key_path=/home/pi/QA/System-tests/keys
+Library    CryptoLibrary    variable_decryption=True    key_path=/home/pi/QA/System-tests/keys
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
