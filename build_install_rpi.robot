@@ -72,8 +72,9 @@ armv7
     Log    ${FILENAME}
     Set Global Variable    ${FILENAME}
 uninstall tedge script
-    Execute Command    chmod a+x uninstall_script.sh
-    Execute Command    ./uninstall_script.sh purge
+    Execute Command    wget https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/uninstall-thin-edge_io.sh
+    Execute Command    chmod a+x uninstall-thin-edge_io.sh
+    Execute Command    ./uninstall-thin-edge_io.sh
 
 # Remove device from Cumulocity
     New Page    ${url}
