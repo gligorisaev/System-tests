@@ -10,20 +10,20 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}    192.168.100.120
-${USERNAME}    pi   
-${PASSWORD}    crypt:jz1ntDRe+A/PXHXm3ZLktZvu6XOtO7mugwgy1dJZSBRCU7B5diEteosE2RwLAWB7qcTZSsQKUlA=  
+${HOST}           crypt:TtXFX2OzHrCxbTIt5ThoaWVK+uT3YNNVwgrOobWapAi2IDkY/kn3mNQsZ2digMHHri3LQqKCgqQ2vdkEtmab
+${USERNAME}       crypt:gseg6/kuH7TzEy2xbJx/sc8+Srzn+jmJC4w9qmZkyR3jTxyJ/FY2mPgZ7rmAneFnL5s=
+${PASSWORD}       crypt:Ed80ER5yXWDKXYfcHr7T4vAkcc5IsPMYpppnhPwDUCWjSg68KT4fhU5RMY1AYyrrDJNoO5e4LEk=
 ${DeviceID}       SysTest
 ${Version}        0.*
 ${download_dir}    /home/pi/download
 ${url_dow}     https://github.com/thin-edge/thin-edge.io/actions
-# ${user_git}    crypt:gv/uGulP9+Ef1AfwV0WfQfCeb3i7t5JhM0gKiA81HUIKXWiELBQdbBY1LA5NIxsbXXKrueva3KJ7iNNty7YSqzLNvBin
-# ${pass_git}    crypt:A81niXupPbX0mUzYmSHR0FIUiG5OmUYq4+Z8SP1OxXVJWNHhpPCa3icqCgSt0wBcsvr3fh9HtDFla+WjmiZDDQ==
+${user_git}    crypt:33WW/JW5V5JboiLPtfi4s7gVTxbu/UmeBFKGXrjaA2HzVr5kitfFlFseJcHuZhVIK4dgcVP6TeiSKMt/o8jcFguv7f8h
+${pass_git}    crypt:j4rAAIk63Q6PJlE4rXwdiK+dPEpc57W++ohxBoiFEl94rLoGqszeT4Z7mi/Qto5FjtrB0RLy/Kr9cZOW/9ht1Q==
 ${FILENAME}
 ${DIRECTORY}    /home/pi/download
-# ${url}    crypt:dQ0P1/gUUWD3ZVUlxjDP39y/6T0CgOpORp0LODrCaSbM0652J3t9PzihEKn5g6pW4VbC4lLH/oU+TnBaYmlrwUIrmmT06YUzIa7n6vCmzP46Jro=
-# ${user}    crypt:D6TKgnsmQ9O6uxVlysRxrOEFDlNrrUG06o40d3HGgCfZEniCVTfwsfuF/qZjzEo7Xe12RdL5
-# ${pass}    crypt:eXcdz83K8Celm83yPx3wi5bSKaObxX9pfV8i0RTEbV/faeONsvM3VZi55h3Bi6aUmgXi8waleJb2Jw==
+${url}    https://gligor.latest.stage.c8y.io/
+${user}    gligor
+${pass}    Ian@240821
 ${BUILD}
 ${ARCH}
 ${dir}
