@@ -109,8 +109,9 @@ uninstall tedge script
     install tedge
 
 install tedge
-    SSHLibrary.Execute Command    rm *.deb
-    SSHLibrary.Execute Command    rm *.zip
+    Execute Command    rm *.deb
+    Execute Command    rm *.zip
+    Execute Command    rm *.sh
 # Download the Package
     New Context    acceptDownloads=True
     New Page    ${url_dow} 
