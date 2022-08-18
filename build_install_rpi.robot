@@ -32,6 +32,10 @@ ${dir}
 
 
 *** Tasks ***
+Create Timestamp
+        ${Timestamp}=    get current date    result_format=%d%m%Y%H%M%S
+        log    ${Timestamp}
+        Set Global Variable    ${Timestamp}
 Check Architecture    
     [Documentation]    Checking the architecture of the DUT and setting it as variable
     ${output}=    SSHLibrary.Execute Command   uname -m
