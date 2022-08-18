@@ -20,7 +20,7 @@ ${url_dow}        crypt:sWkHIPQPWer/uJpWUtS8Qo14ECt+QnABqR7Eptae3hSPhUMM3SzkV4BN
 ${user_git}       crypt:IY5AaLe0t9COJtMHU3cZXyB7GTW93bjdlTGMYnr8PEo20z+5eDwQciOeIP998as6JxYvY3cZR6nHxbd1i17bV+ptM97+
 ${pass_git}       crypt:UjT5CYmOJeA0yUiU24Fbe+UEG4+QFOEetwvue+aAFyDixQQbdWoN+hJXwoiNC20RWxzd6uS+LUGZUsxwBNeHYA==
 
-${DeviceID}       
+${DeviceID}       RPI Test
 ${Version}        0.*
 
 ${FILENAME}
@@ -32,10 +32,10 @@ ${dir}
 
 
 *** Tasks ***
-Create Timestamp
-        ${DeviceID}=    get current date    result_format=%d%m%Y%H%M%S
-        log    ${DeviceID}
-        Set Global Variable    ${DeviceID}
+# Create Timestamp
+#         ${DeviceID}=    get current date    result_format=%d%m%Y%H%M%S
+#         log    ${DeviceID}
+#         Set Global Variable    ${DeviceID}
 Check Architecture    
     [Documentation]    Checking the architecture of the DUT and setting it as variable
     ${output}=    SSHLibrary.Execute Command   uname -m
@@ -74,7 +74,7 @@ armv7
 uninstall tedge script
     Execute Command    wget https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/uninstall-thin-edge_io.sh
     Execute Command    chmod a+x uninstall-thin-edge_io.sh
-    Execute Command    ./uninstall-thin-edge_io.sh
+    Execute Command    ./uninstall-thin-edge_io.sh purge
 
 # Remove device from Cumulocity
     New Page    ${url}
