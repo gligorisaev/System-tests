@@ -9,6 +9,7 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
+# Encrupted text can be replaced and own data can be used
 ${HOST}           crypt:TtXFX2OzHrCxbTIt5ThoaWVK+uT3YNNVwgrOobWapAi2IDkY/kn3mNQsZ2digMHHri3LQqKCgqQ2vdkEtmab
 ${USERNAME}       crypt:gseg6/kuH7TzEy2xbJx/sc8+Srzn+jmJC4w9qmZkyR3jTxyJ/FY2mPgZ7rmAneFnL5s=
 ${PASSWORD}       crypt:Ed80ER5yXWDKXYfcHr7T4vAkcc5IsPMYpppnhPwDUCWjSg68KT4fhU5RMY1AYyrrDJNoO5e4LEk=
@@ -32,23 +33,25 @@ ${dir}
 
 *** Tasks ***
 Check Architecture    
+    [Documentation]    Checking the architecture of the DUT and setting it as variable
     ${output}=    SSHLibrary.Execute Command   uname -m
     ${ARCH}    Set Variable    ${output}
     Set Global Variable    ${ARCH}
 
 Set File Name
+    [Documentation]    Setting the file name that needs to be downloaded
     Run Keyword If    '${ARCH}'=='aarch64'    aarch64
     ...  ELSE    armv7   
 
 Check if installation exists on Device
+    [Documentation]    Checking if installation exists and defining if before new
+    ...                installation deinstallation is needed
      ${dir}=    SSHLibrary.Execute Command    ls /usr/bin | grep tedge_agent
     Log    ${dir}
     Set Suite Variable    ${dir} 
 
     Run Keyword If    '${dir}'=='tedge_agent'    uninstall tedge script
     ...  ELSE    install tedge
-
-
 
 *** Keywords ***
 Open Connection And Log In
