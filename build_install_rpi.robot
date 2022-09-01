@@ -74,38 +74,38 @@ uninstall tedge script
     Execute Command    chmod a+x uninstall-thin-edge_io.sh
     Execute Command    ./uninstall-thin-edge_io.sh purge
 
-#  Remove device from Cumulocity
-    New Page    ${url}
-    Wait For Elements State    //button[normalize-space()='Log in']    visible
-    Click    //button[normalize-space()='Agree and proceed']
-    Type Text    id=user    ${user}
-    Type Text    id=password    ${pass}
-    Click    //button[normalize-space()='Log in']
-    Wait For Elements State    //i[@class='icon-2x dlt-c8y-icon-th']    visible
-    Click    //i[@class='icon-2x dlt-c8y-icon-th']
-    Wait For Elements State    //span[normalize-space()='Device management']    visible
-    Click    //span[normalize-space()='Device management']
-    Wait For Elements State    //span[normalize-space()='Devices']    visible
-    Click    //span[normalize-space()='Devices']
-    Wait For Elements State    //span[normalize-space()='All devices']    visible
-    Click    //span[normalize-space()='All devices']
-    Sleep    2s
-    Wait For Elements State    //span[normalize-space()='Management']    visible
-    Click    //span[normalize-space()='Management']
-    Wait For Elements State    //span[normalize-space()='Trusted certificates']    visible
-    Click    //span[normalize-space()='Trusted certificates']
-    Sleep    5s
-    Click    //i[@class='icon-2x dlt-c8y-icon-search']
-    Wait For Elements State    //input[@placeholder='Search for groups or assets…']    visible
-    Type Text    //input[@placeholder='Search for groups or assets…']    ST
-    Wait For Elements State    //button[@title='Starts with']    visible
-    Click    //button[@title='Starts with']
-    Sleep    5s
-    Hover    //td[@class='cdk-cell cdk-column-actions']
-    Click    (//td[@class='cdk-cell cdk-column-actions'])[1] >> //i[@class='text-danger dlt-c8y-icon-minus-circle']
-    Wait For Elements State    //label[@title='Delete devices']//span[1]    visible
-    Click    //label[@title='Delete devices']//span[1]
-    Click    //button[normalize-space()='Delete']
+# #  Remove device from Cumulocity
+#     New Page    ${url}
+#     Wait For Elements State    //button[normalize-space()='Log in']    visible
+#     Click    //button[normalize-space()='Agree and proceed']
+#     Type Text    id=user    ${user}
+#     Type Text    id=password    ${pass}
+#     Click    //button[normalize-space()='Log in']
+#     Wait For Elements State    //i[@class='icon-2x dlt-c8y-icon-th']    visible
+#     Click    //i[@class='icon-2x dlt-c8y-icon-th']
+#     Wait For Elements State    //span[normalize-space()='Device management']    visible
+#     Click    //span[normalize-space()='Device management']
+#     Wait For Elements State    //span[normalize-space()='Devices']    visible
+#     Click    //span[normalize-space()='Devices']
+#     Wait For Elements State    //span[normalize-space()='All devices']    visible
+#     Click    //span[normalize-space()='All devices']
+#     Sleep    2s
+#     Wait For Elements State    //span[normalize-space()='Management']    visible
+#     Click    //span[normalize-space()='Management']
+#     Wait For Elements State    //span[normalize-space()='Trusted certificates']    visible
+#     Click    //span[normalize-space()='Trusted certificates']
+#     Sleep    5s
+#     Click    //i[@class='icon-2x dlt-c8y-icon-search']
+#     Wait For Elements State    //input[@placeholder='Search for groups or assets…']    visible
+#     Type Text    //input[@placeholder='Search for groups or assets…']    ST
+#     Wait For Elements State    //button[@title='Starts with']    visible
+#     Click    //button[@title='Starts with']
+#     Sleep    5s
+#     Hover    //td[@class='cdk-cell cdk-column-actions']
+#     Click    (//td[@class='cdk-cell cdk-column-actions'])[1] >> //i[@class='text-danger dlt-c8y-icon-minus-circle']
+#     Wait For Elements State    //label[@title='Delete devices']//span[1]    visible
+#     Click    //label[@title='Delete devices']//span[1]
+#     Click    //button[normalize-space()='Delete']
     install tedge
 
 install tedge
