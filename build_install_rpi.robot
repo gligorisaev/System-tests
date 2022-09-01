@@ -12,19 +12,19 @@ Suite Teardown         SSHLibrary.Close All Connections
 *** Variables ***
 ${HOST}           192.168.1.130
 ${USERNAME}       pi
-${PASSWORD}       thinedge
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=    #thinedge
 ${DeviceID}       
 ${Version}        0.*
 ${download_dir}    /home/pi/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    gligorisaev@gmail.com
-${pass_git}    IanIsaev24082021
+${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    #gligorisaev@gmail.com
+${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    #IanIsaev24082021
 ${FILENAME}
 ${DIRECTORY}    /home/pi/
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
-${pass}    Alex@210295
+${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    #Alex@210295
 ${BUILD}
 ${ARCH}
 ${dir}
