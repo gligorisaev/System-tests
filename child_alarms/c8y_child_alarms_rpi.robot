@@ -1,4 +1,4 @@
-#Command to execute:    robot -d \results --timestampoutputs --log c8y_child_alarms_rpi.html --report NONE --variable BUILD:821 c8y_child_alarms_rpi.robot
+#Command to execute:    robot -d \results --timestampoutputs --log c8y_child_alarms_rpi.html --report NONE --variable HOST:192.168.1.120 c8y_child_alarms_rpi.robot
 *** Settings ***
 Documentation    Testing the child device alarm message feature
 ...              build to be used: https://github.com/thin-edge/thin-edge.io/actions/runs/2817528444  
