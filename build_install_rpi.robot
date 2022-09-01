@@ -106,7 +106,7 @@ uninstall tedge script
 #     Wait For Elements State    //label[@title='Delete devices']//span[1]    visible
 #     Click    //label[@title='Delete devices']//span[1]
 #     Click    //button[normalize-space()='Delete']
-    install tedge
+#     install tedge
 
 install tedge
     Execute Command    rm *.deb | rm *.zip | rm *.sh*
