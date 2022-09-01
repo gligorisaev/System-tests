@@ -1,16 +1,4 @@
-*** Settings ***
-Library    Browser
-Library    OperatingSystem
-Library    Dialogs
-Library    SSHLibrary
-Library    DateTime
-Library    CryptoLibrary    variable_decryption=True
-Suite Setup            Open Connection And Log In
-Suite Teardown         SSHLibrary.Close All Connections
-
-*** Variables ***
-# Encrupted text can be replaced and own data can be used
-${HOST}           #Command to execute:    robot -d \results --timestampoutputs --log build-install.html --report NONE --variable BUILD:821 build-install.robot
+#Command to execute:    robot -d \results --timestampoutputs --log build_install_rpi.html --report NONE --variable BUILD:821 build_install_rpi.robot
 *** Settings ***
 Library    Browser
 Library    OperatingSystem
@@ -27,12 +15,12 @@ ${USERNAME}       pi
 ${PASSWORD}       crypt:n5NmySNv9JOf6AAFTwTVr9T0uRs5jxp2BZoJsXXYe0SCj15rYtYf7W6hAsC6cvXzzfRe1LRNnMw=
 ${DeviceID}       
 ${Version}        0.*
-${download_dir}    /Users/glis/Downloads
+${download_dir}    /home/pi/download
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 ${user_git}    crypt:o99lxSbNHijDsbhZC4dyXcLfKykRNUKQ/rWtNHyRIkhpcY9dTTt/T2nekvM1nMap+dx6T+8WC/AXxw5opxyaDStbZJd4
 ${pass_git}    crypt:YMPyjZTgfeuqMTZgGjZXqpXHbcaHGFDz2b6JpCGhDygynhPdbn8zysa3DQbO/zc8lnFV903aVZ5jvPJuxuw4mA==
 ${FILENAME}
-${DIRECTORY}    /home/pi/downloads/
+${DIRECTORY}    /home/pi/download/
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
