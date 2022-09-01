@@ -20,7 +20,7 @@ ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 ${user_git}    gligorisaev@gmail.com
 ${pass_git}    IanIsaev24082021
 ${FILENAME}
-${DIRECTORY}    /home/pi/download
+${DIRECTORY}    /home/pi/
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
