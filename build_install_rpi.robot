@@ -15,12 +15,12 @@ ${USERNAME}       pi
 ${PASSWORD}       thinedge
 ${DeviceID}       
 ${Version}        0.*
-${download_dir}    /Users/glis/Downloads
+${download_dir}    /home/pi/download
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 ${user_git}    gligorisaev@gmail.com
 ${pass_git}    IanIsaev24082021
 ${FILENAME}
-${DIRECTORY}    /Users/glis/Downloads/
+${DIRECTORY}    /home/pi/download
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
