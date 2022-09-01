@@ -7,7 +7,7 @@ Documentation    Testing the child device alarm message feature
 Library    SSHLibrary
 Library    Browser
 Library    Dialogs
-Library    CryptoLibrary
+Library    CryptoLibrary    variable_decryption=True
 
 
 Suite Setup            Open Connection And Log In
