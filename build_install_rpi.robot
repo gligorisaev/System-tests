@@ -15,7 +15,7 @@ ${USERNAME}       pi
 ${PASSWORD}       thinedge
 ${DeviceID}       
 ${Version}        0.*
-${download_dir}    /home/pi/download/
+${download_dir}    /home/pi/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 ${user_git}    gligorisaev@gmail.com
 ${pass_git}    IanIsaev24082021
