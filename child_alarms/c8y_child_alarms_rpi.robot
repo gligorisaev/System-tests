@@ -1,15 +1,11 @@
 #Command to execute:    robot -d \results --timestampoutputs --log c8y_child_alarms_rpi.html --report NONE --variable HOST:192.168.1.120 c8y_child_alarms_rpi.robot
 *** Settings ***
-Documentation    Testing the child device alarm message feature
-...              build to be used: https://github.com/thin-edge/thin-edge.io/actions/runs/2817528444  
-...              Precondition: thin-edge.io is installed, and DUT is connected to Cumulocity
-
-Library    SSHLibrary
 Library    Browser
+Library    OperatingSystem
 Library    Dialogs
+Library    SSHLibrary
+Library    DateTime
 Library    CryptoLibrary    variable_decryption=True
-
-
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
