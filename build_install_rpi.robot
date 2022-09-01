@@ -10,43 +10,43 @@ Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
-${HOST}           192.168.1.130
+${HOST}           
 ${USERNAME}       pi
-${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=    #thinedge
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=    
 ${DeviceID}       
 ${Version}        0.*
 ${download_dir}    /home/pi/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    #gligorisaev@gmail.com
-${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    #IanIsaev24082021
+${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    
+${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
 ${FILENAME}
 ${DIRECTORY}    /home/pi/
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
-${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    #Alex@210295
+${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
 ${BUILD}
 ${ARCH}
 ${dir}
 
 *** Tasks ***
-Create Timestamp
+Create Timestamp    #Creating timestamp to be used for Device ID
         ${timestamp}=    get current date    result_format=%d%m%Y%H%M%S
         log    ${timestamp}
         Set Global Variable    ${timestamp}
-Define Device id
+Define Device id    #Defining the Device ID, structure is (ST'timestamp') (eg. ST01092022091654)
         ${DeviceID}   Set Variable    ST${timestamp}
         Set Suite Variable    ${DeviceID}
-Check Architecture    
+Check Architecture    #Checking the architecture in order to download the right SW
     ${output}=    Execute Command   uname -m
     ${ARCH}    Set Variable    ${output}
     Set Global Variable    ${ARCH}
 
-Set File Name
+Set File Name    #Setting the file name for download
     Run Keyword If    '${ARCH}'=='aarch64'    aarch64
     ...  ELSE    armv7   
 
-Check if installation exists on Device
+Check if installation exists on Device    #Checking if thinedge is already installed on device 
      ${dir}=    SSHLibrary.Execute Command    ls /usr/bin | grep tedge_agent
     Log    ${dir}
     Set Suite Variable    ${dir} 
@@ -73,41 +73,6 @@ uninstall tedge script
     Execute Command    wget https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/uninstall-thin-edge_io.sh
     Execute Command    chmod a+x uninstall-thin-edge_io.sh
     Execute Command    ./uninstall-thin-edge_io.sh purge
-
-# #  Remove device from Cumulocity
-#     New Page    ${url}
-#     Wait For Elements State    //button[normalize-space()='Log in']    visible
-#     Click    //button[normalize-space()='Agree and proceed']
-#     Type Text    id=user    ${user}
-#     Type Text    id=password    ${pass}
-#     Click    //button[normalize-space()='Log in']
-#     Wait For Elements State    //i[@class='icon-2x dlt-c8y-icon-th']    visible
-#     Click    //i[@class='icon-2x dlt-c8y-icon-th']
-#     Wait For Elements State    //span[normalize-space()='Device management']    visible
-#     Click    //span[normalize-space()='Device management']
-#     Wait For Elements State    //span[normalize-space()='Devices']    visible
-#     Click    //span[normalize-space()='Devices']
-#     Wait For Elements State    //span[normalize-space()='All devices']    visible
-#     Click    //span[normalize-space()='All devices']
-#     Sleep    2s
-#     Wait For Elements State    //span[normalize-space()='Management']    visible
-#     Click    //span[normalize-space()='Management']
-#     Wait For Elements State    //span[normalize-space()='Trusted certificates']    visible
-#     Click    //span[normalize-space()='Trusted certificates']
-#     Sleep    5s
-#     Click    //i[@class='icon-2x dlt-c8y-icon-search']
-#     Wait For Elements State    //input[@placeholder='Search for groups or assets…']    visible
-#     Type Text    //input[@placeholder='Search for groups or assets…']    ST
-#     Wait For Elements State    //button[@title='Starts with']    visible
-#     Click    //button[@title='Starts with']
-#     Sleep    5s
-#     Hover    //td[@class='cdk-cell cdk-column-actions']
-#     Click    (//td[@class='cdk-cell cdk-column-actions'])[1] >> //i[@class='text-danger dlt-c8y-icon-minus-circle']
-#     Wait For Elements State    //label[@title='Delete devices']//span[1]    visible
-#     Click    //label[@title='Delete devices']//span[1]
-#     Click    //button[normalize-space()='Delete']
-#     install tedge
-
 install tedge
     Execute Command    rm *.deb | rm *.zip | rm *.sh*
 
@@ -188,14 +153,16 @@ install tedge
     ${output}=    Execute Command    sudo tedge cert show    #You can then check the content of that certificate.
     Should Contain    ${output}    Device certificate: /etc/tedge/device-certs/tedge-certificate.pem
 
-# Configure the device
+# Set c8y URL
     ${rc}=    Execute Command    sudo tedge config set c8y.url ${url_tedge}    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
-    
+
+# Upload certificate    
     Write   sudo tedge cert upload c8y --user ${user}
     Write    ${pass}
     Sleep    3s
 
+# Connect to c8y
     ${output}=    Execute Command    sudo tedge connect c8y    #You can then check the content of that certificate.
     Should Contain    ${output}    tedge-agent service successfully started and enabled!
 
