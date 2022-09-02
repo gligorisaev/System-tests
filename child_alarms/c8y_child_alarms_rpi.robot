@@ -175,11 +175,12 @@ Reconciliation when the alarm that is cleared
     Log    ${dev_name}
     Set Suite Variable    ${dev_name}
     Click    //a[@title='${dev_name}']
-    Sleep    6s
+    Sleep    3s
 
 #Check existance of alarms
     Click    //span[normalize-space()='Child devices']
     Wait For Elements State    //a[@title='${child_device_name}']    visible
+    Sleep    3s
     Click    //a[@title='${child_device_name}']
     Wait For Elements State    //span[@class='txt'][normalize-space()='Alarms']    visible
     Click    //span[@class='txt'][normalize-space()='Alarms']
