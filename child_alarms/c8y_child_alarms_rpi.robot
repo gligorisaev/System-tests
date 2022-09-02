@@ -175,7 +175,7 @@ Reconciliation when the alarm that is cleared
     Log    ${dev_name}
     Set Suite Variable    ${dev_name}
     Click    //a[@title='${dev_name}']
-    Sleep    3s
+    Sleep    6s
 
 #Check existance of alarms
     Click    //span[normalize-space()='Child devices']
