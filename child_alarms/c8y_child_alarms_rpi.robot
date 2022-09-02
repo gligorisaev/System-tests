@@ -17,11 +17,20 @@ ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
 ${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    #Alex@210295
-${child_device_name}    test_sensor_qa
+${child_device_name} 
 ${dev_name}
 
-
 *** Tasks ***
+Create Timestamp    #Creating timestamp to be used for Child Device ID
+    ${timestamp}=    get current date    result_format=%d%m%Y%H%M%S
+    log    ${timestamp}
+    Set Global Variable    ${timestamp}
+    
+Define Child device 1 ID
+    ${child_device_name}    Set Variable    CD${timestamp}
+    Log    ${child_device_name}
+    Set Global Variable    ${child_device_name}
+
 Normal case when the child device does not exist on c8y cloud
 # Log in to Cumulocity
     New Page    ${url}
@@ -64,7 +73,7 @@ Normal case when the child device does not exist on c8y cloud
     Should Contain    ${alarm}    CRITICAL
     Should Contain    ${alarm}    Alarm of type 'temperature_high' raised
     Should Contain    ${alarm}    1 Jan 2021, 06:30:45
-    Should Contain    ${alarm}    MQTT Device ${child_device_name}
+    Should Contain    ${alarm}    ${child_device_name}
 
 Normal case when the child device already exists
     New Page    ${url}
@@ -105,7 +114,7 @@ Normal case when the child device already exists
     Should Contain    ${alarm}    CRITICAL
     Should Contain    ${alarm}    2 Alarm of type 'temperature_high' raised
     Should Contain    ${alarm}    2 Jan 2021, 06:30:45
-    Should Contain    ${alarm}    MQTT Device ${child_device_name}
+    Should Contain    ${alarm}    ${child_device_name}
 
 Reconciliation when the new alarm message arrives, restart the mapper
     Execute Command    sudo systemctl stop tedge-mapper-c8y.service
@@ -140,7 +149,7 @@ Reconciliation when the new alarm message arrives, restart the mapper
     Should Contain    ${alarm}    CRITICAL
     Should Contain    ${alarm}    Alarm of type 'temperature_high' raised
     Should Contain    ${alarm}    Jan 2021, 06:30:45
-    Should Contain    ${alarm}    MQTT Device ${child_device_name}
+    Should Contain    ${alarm}    ${child_device_name}
 
 Reconciliation when the alarm that is cleared
     Execute Command    sudo systemctl stop tedge-mapper-c8y.service
@@ -170,8 +179,8 @@ Reconciliation when the alarm that is cleared
 
 #Check existance of alarms
     Click    //span[normalize-space()='Child devices']
-    Wait For Elements State    //a[@title='MQTT Device ${child_device_name}']    visible
-    Click    //a[@title='MQTT Device ${child_device_name}']
+    Wait For Elements State    //a[@title='${child_device_name}']    visible
+    Click    //a[@title='${child_device_name}']
     Wait For Elements State    //span[@class='txt'][normalize-space()='Alarms']    visible
     Click    //span[@class='txt'][normalize-space()='Alarms']
     ${alarm}    Get Text    //body[1]/c8y-ui-root[1]/c8y-bootstrap[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/c8y-alarm-list[1]/div[1]/div[2]/div[1]/div[1]/p[1]/strong[1]
