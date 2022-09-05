@@ -1,4 +1,4 @@
-#Command to execute:    robot -d \results --timestampoutputs --log build-install.html --report NONE --variable BUILD:840 --variable HOST:192.168.1.130 build_install_rpi.robot
+#Command to execute:    robot -d \results --timestampoutputs --log build_install_rpi.html --report NONE --variable BUILD:840 --variable HOST:192.168.1.130 build_install_rpi.robot
 *** Settings ***
 Library    Browser
 Library    OperatingSystem
@@ -54,7 +54,7 @@ Set File Name    #Setting the file name for download
 #     Run Keyword If    '${dir}'=='tedge_agent'    uninstall tedge script
 #     ...  ELSE    install tedge
 
-Uninstall tedge script
+Uninstall tedge with purge
     Execute Command    wget https://raw.githubusercontent.com/thin-edge/thin-edge.io/main/uninstall-thin-edge_io.sh
     Execute Command    chmod a+x uninstall-thin-edge_io.sh
     Execute Command    ./uninstall-thin-edge_io.sh purge
@@ -150,6 +150,7 @@ Upload certificate
 
 Connect to c8y
     ${output}=    Execute Command    sudo tedge connect c8y    #You can then check the content of that certificate.
+    Sleep    3s
     Should Contain    ${output}    tedge-agent service successfully started and enabled!
 
     Execute Command    rm *.deb | rm *.zip | rm *.sh*
