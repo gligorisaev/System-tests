@@ -9,8 +9,8 @@ Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
 ${HOST}           
-${USERNAME}       crypt:1q1Tdi1/1n0W77nrDse+9MQ5XWdFtVjhI6m3CI3XKkQypmgAHo/fn5MOLN0ZGPxCtk8=
-${PASSWORD}       crypt:RvU1PTeCTkfgkunSs+gBidttBUQhjw6s+NLkKLozaFMsWpLAc/xDh+UMYBKUDmJaV01KKrkXWqs=
+${USERNAME}       pi
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
 
 
 *** Tasks ***
