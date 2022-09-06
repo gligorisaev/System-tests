@@ -10,7 +10,7 @@ Suite Teardown         SSHLibrary.Close All Connections
 *** Variables ***
 ${HOST}           
 ${USERNAME}       pi
-${PASSWORD}       thinedge    #crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
 
 
 *** Tasks ***
@@ -31,13 +31,13 @@ Start watchdog service
     Should Be Equal    ${rc}    ${0}
     Sleep    10s
 Check PID of tedge-mapper-az
-    ${pid}=    Execute Command    pgrep tedge-mapper
+    ${pid}=    Execute Command    pgrep -f 'tedge_mapper az'
     Set Suite Variable    ${pid}
 Restart tedge-mapper-az
     ${rc}=    Execute Command    sudo systemctl restart tedge-mapper-az.service    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 Recheck PID of tedge_agent
-    ${pid1}=    Execute Command    pgrep tedge-mapper
+    ${pid1}=    Execute Command    pgrep -f 'tedge_mapper az'
     Set Suite Variable    ${pid1}
 Compare PID change
     Should Not Be Equal    ${pid}    ${pid1}
