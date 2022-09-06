@@ -1,4 +1,4 @@
-#Command to execute:    robot -d \results --timestampoutputs --log health_c8y-configuration-plugin.html --report NONE --variable HOST:192.168.1.120 health_c8y-configuration-plugin.robot
+#Command to execute:    robot -d \results --timestampoutputs --log health_c8y-configuration-plugin.html --report NONE --variable HOST:192.168.1.120 QA/System-tests/health_check/health_c8y-configuration-plugin.robot
 
 *** Settings ***
 Library    SSHLibrary 

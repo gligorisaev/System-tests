@@ -1,4 +1,4 @@
-#Command to execute:    robot -d \results --timestampoutputs --log health_tedge-mapper-az.html --report NONE --variable HOST:192.168.1.120 health_tedge-mapper-az.robot
+#Command to execute:    robot -d \results --timestampoutputs --log health_tedge-mapper-az.html --report NONE --variable HOST:192.168.1.120 QA/System-tests/health_check/health_tedge-mapper-az.robot
 
 *** Settings ***
 Library    SSHLibrary
