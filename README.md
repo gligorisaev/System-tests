@@ -28,7 +28,7 @@
 
 ## 2. List of Devices available
 
-1. Raspberry Pi 4 - 192.168.1.4	(user: pass:) to be used only for executing 
+1. Raspberry Pi 4 - 192.168.1.4	to be used only for executing 
 2. Raspberry Pi 4 - 192.168.1.110 (user:pi pass:thinedge)
 2. Raspberry Pi 3 - 192.168.1.120 (user:pi pass:thinedge)
 3. Raspberry Pi 4 - 192.168.1.130 (user:pi pass:thinedge)
