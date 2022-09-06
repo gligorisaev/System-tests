@@ -50,7 +50,7 @@ Recheck PID of tedge_agent
 Compare PID change
     Should Not Be Equal    ${pid}    ${pid1}
 Remove entry from service file
-    ${rc}=    Execute Command    sudo sed -i '10d' /lib/systemd/system/tedge-agent.service    return_stdout=False    return_rc=True
+    ${rc}=    Execute Command    sudo sed -i '11d' /lib/systemd/system/tedge-agent.service    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 
  
