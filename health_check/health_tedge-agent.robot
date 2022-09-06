@@ -10,7 +10,7 @@ Suite Teardown         SSHLibrary.Close All Connections
 *** Variables ***
 ${HOST}           
 ${USERNAME}       pi
-${PASSWORD}       thinedge  #crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
 
 
 
