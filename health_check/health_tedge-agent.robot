@@ -32,23 +32,20 @@ Start watchdog service
     ${rc}=    Execute Command    sudo systemctl start tedge-watchdog.service    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
     Sleep    10s
-Grab the health messages
-    Open Connection And Log In
-    ${mqtt}=    Write    sudo tedge mqtt sub tedge/health/#
 Check PID of tedge_mapper
     ${pid}=    Execute Command    pgrep tedge_agent
     Set Suite Variable    ${pid}
 Restart tedge_agent
     ${rc}=    Execute Command    sudo systemctl restart tedge-agent.service    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
-Stop watchdog service
-    ${rc}=    Execute Command    sudo systemctl stop tedge-watchdog.service    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
 Recheck PID of tedge_agent
     ${pid1}=    Execute Command    pgrep tedge_agent
     Set Suite Variable    ${pid1}
 Compare PID change
     Should Not Be Equal    ${pid}    ${pid1}
+Stop watchdog service
+    ${rc}=    Execute Command    sudo systemctl stop tedge-watchdog.service    return_stdout=False    return_rc=True
+    Should Be Equal    ${rc}    ${0}
 Remove entry from service file
     ${rc}=    Execute Command    sudo sed -i '11d' /lib/systemd/system/tedge-agent.service    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
