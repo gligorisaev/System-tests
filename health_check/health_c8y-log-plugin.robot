@@ -32,8 +32,8 @@ Start watchdog service
 Check PID of c8y-log-plugin
     ${pid}=    Execute Command    pgrep c8y_log_plugin
     Set Suite Variable    ${pid}
-Restart c8y-log-plugin
-    ${rc}=    Execute Command    sudo systemctl restart c8y-log-plugin.service    return_stdout=False    return_rc=True
+Kill the PID
+    ${rc}=    Execute Command    sudo kill -9 ${pid}    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 Recheck PID of c8y-log-plugin
     ${pid1}=    Execute Command    pgrep c8y_log_plugin

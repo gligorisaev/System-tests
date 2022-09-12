@@ -35,8 +35,8 @@ Start watchdog service
 Check PID of tedge-mapper-collectd
     ${pid}=    Execute Command    pgrep -f 'tedge_mapper collectd'
     Set Suite Variable    ${pid}
-Restart tedge-mapper-collectd
-    ${rc}=    Execute Command    sudo systemctl restart tedge-mapper-collectd.service    return_stdout=False    return_rc=True
+Kill the PID
+    ${rc}=    Execute Command    sudo kill -9 ${pid}    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 Recheck PID of tedge-mapper-collectd
     ${pid1}=    Execute Command    pgrep -f 'tedge_mapper collectd'
