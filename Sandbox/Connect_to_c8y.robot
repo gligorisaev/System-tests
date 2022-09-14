@@ -5,6 +5,7 @@ Library    SSHLibrary
 Library    DateTime
 Library    CryptoLibrary    variable_decryption=True
 Library    Dialogs
+Library    String
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
@@ -153,6 +154,12 @@ Sending your first telemetry data
     Put File    ${download_dir}report.zip
     ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
+
+Read CSV file
+    ${csv}=    Get File    *.csv
+    @{read}=    Create List    ${csv}
+    @{lines}=    Split To Lines    @{read}    1
+
 
     # Pause Execution
 
