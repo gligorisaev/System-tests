@@ -122,7 +122,7 @@ Sending your first telemetry data
     # Should Be Equal    ${rc}    ${0}
     # #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
     # #You should observe a "temperature measurement" graph with the new data point.
-    Open Browser    ${url}
+    New Page    ${url}
     Wait For Elements State    //button[normalize-space()='Log in']    visible
     Click    //button[normalize-space()='Agree and proceed']
     Type Text    id=user    ${user}
