@@ -15,7 +15,7 @@ Suite Teardown         SSHLibrary.Close All Connections
 *** Variables ***
 ${HOST}           192.168.1.130
 ${USERNAME}       pi
-${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=  
+${PASSWORD}       crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=          
 ${Version}        0.*
 ${download_dir}    /home/pi/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
@@ -24,13 +24,12 @@ ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 ${url}    https://qaenvironment.eu-latest.cumulocity.com/
 ${url_tedge}    qaenvironment.eu-latest.cumulocity.com
 ${user}    qatests
-${pass}    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
-
+${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
+# ${report}    3206.c8y_TemperatureMeasurement.csv
 
 *** Tasks ***
-
-# Go to root
-#     Run    cd
+Go to root
+    Run    cd
 Install thin-edge.io on your device
     Create Timestamp
     Define Device id
@@ -135,7 +134,7 @@ Get the report csv
     Execute Command    rm *.csv
 
 Read csv file and validate
-    @{list}=  Read Csv File To List    /home/pi/${report}
+    @{list}=  Read Csv File To List    ${report}
     Log  ${list[0]}
     Log  ${list[1]}
     Should Contain    ${list[1]}    ${DeviceID}
@@ -143,7 +142,11 @@ Read csv file and validate
     Should Contain    ${list[1]}    20
 
 Remove csv file
-    Remove File    /home/pi/${report}
+    Remove File    ${report}
+
+
+
+
 
 *** Keywords ***
 Open Connection And Log In
