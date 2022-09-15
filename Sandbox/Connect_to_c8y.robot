@@ -48,9 +48,9 @@ Install thin-edge.io on your device
 Set the URL of your Cumulocity IoT tenant
     ${rc}=    Execute Command    sudo tedge config set c8y.url ${url_tedge}    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
-Set the path to the root certificate if necessary. The default is /etc/ssl/certs.
-    ${rc}=    Execute Command    $ sudo tedge config set c8y.root.cert.path /etc/ssl/certs    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
-    Should Be Equal    ${rc}    ${0}
+# Set the path to the root certificate if necessary. The default is /etc/ssl/certs.
+#     ${rc}=    Execute Command    $ sudo tedge config set c8y.root.cert.path /etc/ssl/certs    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
+#     Should Be Equal    ${rc}    ${0}
     #This will set the root certificate path of the Cumulocity IoT. In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
     #A single argument is required: an identifier for the device. 
     #This identifier will be used to uniquely identify your devices among others in your cloud tenant. 
@@ -171,7 +171,7 @@ Read csv file to a list example test
     Log  ${list[1]}
 
 
-    
+
 
 *** Keywords ***
 Open Connection And Log In
