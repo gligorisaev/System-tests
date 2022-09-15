@@ -112,7 +112,7 @@ Download the measurements report file
     Click    //span[contains(text(),'More…')]
     Click    (//button[@title='Download as CSV'][normalize-space()='Download as CSV'])[2]
     Wait For Elements State    //a[normalize-space()='Download']    visible
-    ${dl_promise}          Promise To Wait For Download    /home/pi/report.zip
+    ${dl_promise}          Promise To Wait For Download    /home/pi/download/report.zip
     Click    //a[normalize-space()='Download']
     ${file_obj}=    Wait For  ${dl_promise}
     Sleep    5s
@@ -120,8 +120,8 @@ Download the measurements report file
 # Copy the downloaded report
 #     Put File    ${download_dir}report.zip
 
-# Unzip the report
-#     Run    unzip report.zip
+Unzip the report
+    Run    unzip /home/pi/download/report.zip
 #     Run    mv *.csv /home/pi/download
 
 # Delete the zip file
