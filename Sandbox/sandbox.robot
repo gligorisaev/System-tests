@@ -71,7 +71,7 @@ Sending your first telemetry data
     
 
 Read csv file to a list example test
-    @{list}=  Read Csv File To List    ${download_dir}/3203.c8y_TemperatureMeasurement.csv.csv
+    @{list}=  Read Csv File To List    ${download_dir}3203.c8y_TemperatureMeasurement.csv.csv
     Log  ${list[0]}
     Log  ${list[1]}
 
