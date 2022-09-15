@@ -128,9 +128,9 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     Remove File    /home/pi/report.zip
 
 Get the report csv
-    Get File    *.csv
+    SSHLibrary.Get File    *.csv
 
-    
+
 # Get the report file name
 #     ${report}=    Execute Command    ls
 #     Set Suite Variable    ${report}
