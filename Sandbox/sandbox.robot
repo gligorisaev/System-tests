@@ -31,7 +31,7 @@ Sending your first telemetry data
     # #forwarded to Cumulocity. The messages are expected to have a format specific to each topic. Here, we use tedge mqtt pub a raw 
     # #Cumulocity SmartRest message to be understood as a temperature of 20 Celsius.
     ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
-    # Should Be Equal    ${rc}    ${0}
+    Should Be Equal    ${rc}    ${0}
     # #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
     # #You should observe a "temperature measurement" graph with the new data point.
     New Page    ${url}
