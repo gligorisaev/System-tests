@@ -66,11 +66,10 @@ Sending your first telemetry data
     Put File    ${download_dir}report.zip
 
 
-    ${rc}=    Execute Command    unzip report.zip -d /home/pi/download    return_stdout=False    return_rc=True
+    ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 
-    Execute Command    cd /home/pi/download
-
+    Execute Command    rm *.zip
     ${report}=    Execute Command    ls
     Log    ${report}
 
