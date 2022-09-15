@@ -62,14 +62,18 @@ Sending your first telemetry data
     Click    //a[normalize-space()='Download']
     ${file_obj}=    Wait For  ${dl_promise}
     Sleep    5s
+
+    Put File    ${download_dir}report.zip
+
     ${rc}=    Execute Command    unzip report.zip -d /home/pi/download    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 
+    
+
 Read csv file to a list example test
-#   @{list}=  Read Csv File To List    /Users/glis/Downloads/*.csv
-  @{list}=  Read Csv File To List    ${download_dir}/3203.c8y_TemperatureMeasurement.csv.csv
-  Log  ${list[0]}
-  Log  ${list[1]}
+    @{list}=  Read Csv File To List    ${download_dir}/3203.c8y_TemperatureMeasurement.csv.csv
+    Log  ${list[0]}
+    Log  ${list[1]}
 
 
 
