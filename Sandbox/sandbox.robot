@@ -138,7 +138,7 @@ ${report}    3206.c8y_TemperatureMeasurement.csv
 
 
 Read csv file to a list example test
-    @{list}=  Read Csv File To List    ${report}
+    @{list}=  Read Csv File To List    /home/pi/${report}
     Log  ${list[0]}
     Log  ${list[1]}
 
