@@ -83,45 +83,45 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
 #     Should Be Equal    ${rc}    ${0}
 
-Download the measurements report file
-    New Page    ${url}
-    Wait For Elements State    //button[normalize-space()='Log in']    visible
-    Click    //button[normalize-space()='Agree and proceed']
-    Type Text    id=user    ${user}
-    Type Text    id=password    ${pass}
-    Click    //button[normalize-space()='Log in']
-    Wait For Elements State    //i[@class='icon-2x dlt-c8y-icon-th']    visible
-    Click    //i[@class='icon-2x dlt-c8y-icon-th']
-    Wait For Elements State    //span[normalize-space()='Device management']    visible
-    Click    //span[normalize-space()='Device management']
-    Wait For Elements State    //span[normalize-space()='Devices']    visible
-    Click    //span[normalize-space()='Devices']
-    Wait For Elements State    //span[normalize-space()='All devices']    visible
-    Click    //span[normalize-space()='All devices']
-    Sleep    2s
-    Wait For Elements State    div[ng-class='truncated-cell-content']    visible
+# Download the measurements report file
+#     New Page    ${url}
+#     Wait For Elements State    //button[normalize-space()='Log in']    visible
+#     Click    //button[normalize-space()='Agree and proceed']
+#     Type Text    id=user    ${user}
+#     Type Text    id=password    ${pass}
+#     Click    //button[normalize-space()='Log in']
+#     Wait For Elements State    //i[@class='icon-2x dlt-c8y-icon-th']    visible
+#     Click    //i[@class='icon-2x dlt-c8y-icon-th']
+#     Wait For Elements State    //span[normalize-space()='Device management']    visible
+#     Click    //span[normalize-space()='Device management']
+#     Wait For Elements State    //span[normalize-space()='Devices']    visible
+#     Click    //span[normalize-space()='Devices']
+#     Wait For Elements State    //span[normalize-space()='All devices']    visible
+#     Click    //span[normalize-space()='All devices']
+#     Sleep    2s
+#     Wait For Elements State    div[ng-class='truncated-cell-content']    visible
 
 
 
-    Click    //a[@title='ST15092022110254']
-    #Click    //a[@title='${DeviceID}']
+#     Click    //a[@title='ST15092022110254']
+#     #Click    //a[@title='${DeviceID}']
 
-    Wait For Elements State    //span[normalize-space()='Measurements']    visible
-    Click    //span[normalize-space()='Measurements']
-    Wait For Elements State    //body/c8y-ui-root[@id='app']/c8y-bootstrap/div/div/div/div[@id='c8y-legacy-view']/div[@ng-if='vm.widthSet && vm.authState.hasAuth']/div[@ng-controller='measurementsCtrl as ctrl']/c8y-list-pagination[@items='supportedMeasurements']/div/div/c8y-measurements-fragment-chart[@fragment='m']/div/div/c8y-chart[@datapoints='vm.dataPoints']/div[2]//*[name()='svg'][1]/*[name()='rect'][1]
-    Click    //span[contains(text(),'More…')]
-    Click    (//button[@title='Download as CSV'][normalize-space()='Download as CSV'])[2]
-    Wait For Elements State    //a[normalize-space()='Download']    visible
-    ${dl_promise}          Promise To Wait For Download    /home/pi/report.zip
-    Click    //a[normalize-space()='Download']
-    ${file_obj}=    Wait For  ${dl_promise}
-    Sleep    5s
+#     Wait For Elements State    //span[normalize-space()='Measurements']    visible
+#     Click    //span[normalize-space()='Measurements']
+#     Wait For Elements State    //body/c8y-ui-root[@id='app']/c8y-bootstrap/div/div/div/div[@id='c8y-legacy-view']/div[@ng-if='vm.widthSet && vm.authState.hasAuth']/div[@ng-controller='measurementsCtrl as ctrl']/c8y-list-pagination[@items='supportedMeasurements']/div/div/c8y-measurements-fragment-chart[@fragment='m']/div/div/c8y-chart[@datapoints='vm.dataPoints']/div[2]//*[name()='svg'][1]/*[name()='rect'][1]
+#     Click    //span[contains(text(),'More…')]
+#     Click    (//button[@title='Download as CSV'][normalize-space()='Download as CSV'])[2]
+#     Wait For Elements State    //a[normalize-space()='Download']    visible
+#     ${dl_promise}          Promise To Wait For Download    /home/pi/report.zip
+#     Click    //a[normalize-space()='Download']
+#     ${file_obj}=    Wait For  ${dl_promise}
+#     Sleep    5s
 
 # Copy the downloaded report
 #     Put File    ${download_dir}report.zip
 
 Unzip the report
-    Run    sudo unzip report.zip
+    Run    sudo unzip /home/pi/report.zip
     # Run    mv *.zip /download
 
 # Delete the zip file
