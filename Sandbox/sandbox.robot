@@ -65,10 +65,14 @@ Sending your first telemetry data
 
     Put File    ${download_dir}report.zip
 
+
     ${rc}=    Execute Command    unzip report.zip -d /home/pi/download    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
 
-    
+    Execute Command    cd /home/pi/download
+
+    ${report}=    Execute Command    ls
+    Log    ${report}
 
 Read csv file to a list example test
     @{list}=  Read Csv File To List    ${download_dir}3203.c8y_TemperatureMeasurement.csv.csv
