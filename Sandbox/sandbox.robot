@@ -128,7 +128,7 @@ Delete downloaded zip
     Remove File    /home/pi/report.zip
 
 Get the report csv
-    SSHLibrary.Get File    ${report}.csv
+    SSHLibrary.Get File    ${report}
     Execute Command    rm *.csv
 
 Read csv file to a list example test
