@@ -125,7 +125,7 @@ Unzip the report
     # Execute Command    rm *.zip
 
 Delete downloaded zip
-    Run    rm report.zip
+    Run    rm *.zip
 # Get the report file name
 #     ${report}=    Execute Command    ls
 #     Set Suite Variable    ${report}
