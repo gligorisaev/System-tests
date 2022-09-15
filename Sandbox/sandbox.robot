@@ -121,7 +121,7 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     Put File    ${download_dir}report.zip
 
 Unzip the report
-    Run    unzip ${download_dir}report.zip
+    Run    unzip report.zip
 
 # Delete the zip file
 #     Execute Command    rm *.zip
