@@ -153,10 +153,14 @@ Sending your first telemetry data
     Sleep    5s
 
 Copy the downloaded report
-    Put File    ${download_dir}report.zip
+    ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
+    Should Be Equal    ${rc}    ${0}
 
+   
 Unzip the report
-    Execute Command    unzip report.zip
+    ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
+    Should Be Equal    ${rc}    ${0}
+
 
 Delete the zip file
     Execute Command    rm *.zip
