@@ -25,68 +25,72 @@ ${user}    qatests
 ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
 
 *** Test Cases ***
-    #The very first step to enable `thin-edge.io` is to connect your device to the cloud.
-    #This is a 10 minutes operation to be done only once.
-    #It establishes a permanent connection from your device to the cloud end-point.
-    #This connection is secure (encrypted over TLS), and the two peers are identified by x509 certificates.
-    #Sending data to the cloud will then be as simple as sending data locally.
-    #Before you try to connect your device to Cumulocity IoT, you need:
-    #The url of the endpoint to connect (e.g. `eu-latest.cumulocity.com`). ${url} 
-    #Your credentials to connect Cumulocity:
-    #Your tenant identifier (e.g. `t00000007`), a user name (${user}) and password (${pass}).
-    #None of these credentials will be stored on the device.
-    #These are only required once, to register the device.
-    #If not done yet, 
-Install thin-edge.io on your device
-    Create Timestamp
-    Define Device id
-    Uninstall tedge with purge
-    Clear previous downloaded files if any
-    Install_thin-edge
-    #Configure the device
-    #To connect the device to the Cumulocity IoT, one needs to set the URL of your Cumulocity IoT tenant and the root certificate as below.
-Set the URL of your Cumulocity IoT tenant
-    ${rc}=    Execute Command    sudo tedge config set c8y.url ${url_tedge}    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
-    Should Be Equal    ${rc}    ${0}
-# Set the path to the root certificate if necessary. The default is /etc/ssl/certs.
-#     ${rc}=    Execute Command    $ sudo tedge config set c8y.root.cert.path /etc/ssl/certs    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
+#     #The very first step to enable `thin-edge.io` is to connect your device to the cloud.
+#     #This is a 10 minutes operation to be done only once.
+#     #It establishes a permanent connection from your device to the cloud end-point.
+#     #This connection is secure (encrypted over TLS), and the two peers are identified by x509 certificates.
+#     #Sending data to the cloud will then be as simple as sending data locally.
+#     #Before you try to connect your device to Cumulocity IoT, you need:
+#     #The url of the endpoint to connect (e.g. `eu-latest.cumulocity.com`). ${url} 
+#     #Your credentials to connect Cumulocity:
+#     #Your tenant identifier (e.g. `t00000007`), a user name (${user}) and password (${pass}).
+#     #None of these credentials will be stored on the device.
+#     #These are only required once, to register the device.
+#     #If not done yet, 
+# Install thin-edge.io on your device
+#     Create Timestamp
+#     Define Device id
+#     Uninstall tedge with purge
+#     Clear previous downloaded files if any
+#     Install_thin-edge
+#     #Configure the device
+#     #To connect the device to the Cumulocity IoT, one needs to set the URL of your Cumulocity IoT tenant and the root certificate as below.
+# Set the URL of your Cumulocity IoT tenant
+#     ${rc}=    Execute Command    sudo tedge config set c8y.url ${url_tedge}    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
 #     Should Be Equal    ${rc}    ${0}
-    #This will set the root certificate path of the Cumulocity IoT. In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
-    #A single argument is required: an identifier for the device. 
-    #This identifier will be used to uniquely identify your devices among others in your cloud tenant. 
-    #This identifier will be also used as the Common Name (CN) of the certificate. 
-    #Indeed, this certificate aims to authenticate that this device is actually the device with that identity.
-Create the certificate
-    ${rc}=    Execute Command    sudo tedge cert create --device-id ${DeviceID}    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
-    #You can then check the content of that certificate.
-    ${output}=    Execute Command    sudo tedge cert show    #You can then check the content of that certificate.
-    Should Contain    ${output}    Device certificate: /etc/tedge/device-certs/tedge-certificate.pem
-    Should Contain    ${output}    Subject: CN=${DeviceID}, O=Thin Edge, OU=Test Device
-    Should Contain    ${output}    Issuer: CN=${DeviceID}, O=Thin Edge, OU=Test Device
-    Should Contain    ${output}    Valid from:
-    Should Contain    ${output}    Valid up to:
-    Should Contain    ${output}    Thumbprint:
-    #You may notice that the issuer of this certificate is the device itself. This is a self-signed certificate. 
-    #To use a certificate signed by your Certificate Authority, see the reference guide of tedge cert.
-    #The tedge cert create command creates a self-signed certificate which can be used for testing purpose.
+# # Set the path to the root certificate if necessary. The default is /etc/ssl/certs.
+# #     ${rc}=    Execute Command    $ sudo tedge config set c8y.root.cert.path /etc/ssl/certs    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
+# #     Should Be Equal    ${rc}    ${0}
+#     #This will set the root certificate path of the Cumulocity IoT. In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
+#     #A single argument is required: an identifier for the device. 
+#     #This identifier will be used to uniquely identify your devices among others in your cloud tenant. 
+#     #This identifier will be also used as the Common Name (CN) of the certificate. 
+#     #Indeed, this certificate aims to authenticate that this device is actually the device with that identity.
+# Create the certificate
+#     ${rc}=    Execute Command    sudo tedge cert create --device-id ${DeviceID}    return_stdout=False    return_rc=True
+#     Should Be Equal    ${rc}    ${0}
+#     #You can then check the content of that certificate.
+#     ${output}=    Execute Command    sudo tedge cert show    #You can then check the content of that certificate.
+#     Should Contain    ${output}    Device certificate: /etc/tedge/device-certs/tedge-certificate.pem
+#     Should Contain    ${output}    Subject: CN=${DeviceID}, O=Thin Edge, OU=Test Device
+#     Should Contain    ${output}    Issuer: CN=${DeviceID}, O=Thin Edge, OU=Test Device
+#     Should Contain    ${output}    Valid from:
+#     Should Contain    ${output}    Valid up to:
+#     Should Contain    ${output}    Thumbprint:
+#     #You may notice that the issuer of this certificate is the device itself. This is a self-signed certificate. 
+#     #To use a certificate signed by your Certificate Authority, see the reference guide of tedge cert.
+#     #The tedge cert create command creates a self-signed certificate which can be used for testing purpose.
 
-    #Make the device trusted by Cumulocity
-    #For a certificate to be trusted by Cumulocity, one needs to add the certificate of the signing authority to the list of 
-    #trusted certificates. In the Cumulocity GUI, navigate to "Device Management/Management/Trusted certificates" in order to 
-    #see this list for your Cumulocity tenant. 
-    #Here, the device certificate is self-signed and has to be directly trusted by Certificate. This can be done:
-    #either with the GUI: upload the certificate from your device (/etc/tedge/device-certs/tedge-certificate.pem) to your 
-    #tenant "Device Management/Management/Trusted certificates".
-    #or using the 
-tedge cert upload c8y command.
-    #$ sudo tedge cert upload c8y --user <username>
-    #To upload the certificate to cumulocity this user needs to have "Tenant management" admin rights. 
-    #If you get an error 503 here, check the appropriate rights in cumulocity user management.
-    Write   sudo tedge cert upload c8y --user ${user}
-    Write    ${pass}
-    Sleep    3s
+#     #Make the device trusted by Cumulocity
+#     #For a certificate to be trusted by Cumulocity, one needs to add the certificate of the signing authority to the list of 
+#     #trusted certificates. In the Cumulocity GUI, navigate to "Device Management/Management/Trusted certificates" in order to 
+#     #see this list for your Cumulocity tenant. 
+#     #Here, the device certificate is self-signed and has to be directly trusted by Certificate. This can be done:
+#     #either with the GUI: upload the certificate from your device (/etc/tedge/device-certs/tedge-certificate.pem) to your 
+#     #tenant "Device Management/Management/Trusted certificates".
+#     #or using the 
+# tedge cert upload c8y command.
+#     #$ sudo tedge cert upload c8y --user <username>
+#     #To upload the certificate to cumulocity this user needs to have "Tenant management" admin rights. 
+#     #If you get an error 503 here, check the appropriate rights in cumulocity user management.
+#     Write   sudo tedge cert upload c8y --user ${user}
+#     Write    ${pass}
+#     Sleep    3s
 Connect the device
+
+    ${output}=    Execute Command    sudo tedge disconnect c8y
+
+
     #Now, you are ready to run tedge connect c8y. This command configures the MQTT broker:
     #-to establish a permanent and secure connection to the cloud,
     #-to forward local messages to the cloud and vice versa.
@@ -155,9 +159,9 @@ Download the measurements report file
     ${file_obj}=    Wait For  ${dl_promise}
     Sleep    5s
 
-# Copy the downloaded report
-#     ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
-#     Should Be Equal    ${rc}    ${0}
+Copy the downloaded report
+    ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
+    Should Be Equal    ${rc}    ${0}
 
    
 Unzip the report
