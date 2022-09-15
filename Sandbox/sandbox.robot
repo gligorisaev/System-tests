@@ -30,7 +30,7 @@ Sending your first telemetry data
     # #Sending data to Cumulocity is done using MQTT over topics prefixed with c8y. Any messages sent to one of these topics will be 
     # #forwarded to Cumulocity. The messages are expected to have a format specific to each topic. Here, we use tedge mqtt pub a raw 
     # #Cumulocity SmartRest message to be understood as a temperature of 20 Celsius.
-    # ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
+    ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     # Should Be Equal    ${rc}    ${0}
     # #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
     # #You should observe a "temperature measurement" graph with the new data point.
@@ -72,11 +72,15 @@ Sending your first telemetry data
     Execute Command    rm *.zip
     ${report}=    Execute Command    ls
     Log    ${report}
+    Set Suite Variable    ${report}
 
 Read csv file to a list example test
-    @{list}=  Read Csv File To List    ${download_dir}3203.c8y_TemperatureMeasurement.csv
+    @{list}=  Read Csv File To List    ${download_dir}${report}
     Log  ${list[0]}
     Log  ${list[1]}
+
+
+
 
 
 
