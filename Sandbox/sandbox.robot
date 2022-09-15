@@ -134,6 +134,11 @@ Get the report file name
     ${report}=    Execute Command    ls
     Set Suite Variable    ${report}
 
+Read csv file to a list example test
+    @{list}=  Read Csv File To List    ${download_dir}${report}
+    Log  ${list[0]}
+    Log  ${list[1]}
+
 
 *** Keywords ***
 Open Connection And Log In
