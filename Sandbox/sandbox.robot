@@ -2,13 +2,15 @@
 
 *** Settings ***
 Library    Browser
-Library    SSHLibrary 
-Library    MQTTLibrary
+Library    SSHLibrary
+Library    DateTime
+Library    CryptoLibrary    variable_decryption=True
+Library    Dialogs
 Library    String
 Library    CSVLibrary
-Library    CryptoLibrary    variable_decryption=True
+Library    OperatingSystem
 Suite Setup            Open Connection And Log In
-Suite Teardown         Close All Connections
+Suite Teardown         SSHLibrary.Close All Connections
 
 *** Variables ***
 ${HOST}           192.168.1.130
@@ -81,7 +83,7 @@ Sending your first telemetry data
     ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
 
-    
+
 
 
 *** Keywords ***
