@@ -101,10 +101,7 @@ Download the measurements report file
     Sleep    2s
     Wait For Elements State    div[ng-class='truncated-cell-content']    visible
 
-
-
-    Click    //a[@title='ST15092022110254']
-    #Click    //a[@title='${DeviceID}']
+    Click    //a[@title='${DeviceID}']
 
     Wait For Elements State    //span[normalize-space()='Measurements']    visible
     Click    //span[normalize-space()='Measurements']
