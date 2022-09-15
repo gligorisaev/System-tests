@@ -168,8 +168,8 @@ Download the measurements report file
     Sleep    5s
 
 Copy the downloaded report
-    ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
+    Put File ${download_dir}report.zip
+    
 
    
 Unzip the report
