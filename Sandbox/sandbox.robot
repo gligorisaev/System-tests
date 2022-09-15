@@ -132,6 +132,7 @@ Delete downloaded zip
 
 Get the report csv
     SSHLibrary.Get File    *.csv
+    Execute Command    rm *.csv
 
 
 
