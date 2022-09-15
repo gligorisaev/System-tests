@@ -17,7 +17,7 @@ ${HOST}           192.168.1.130
 ${USERNAME}       pi
 ${PASSWORD}       thinedge    #crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=          
 ${Version}        0.*
-${download_dir}    /home/pi/download
+${download_dir}    /home/pi/download/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
 # ${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    
 # ${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
