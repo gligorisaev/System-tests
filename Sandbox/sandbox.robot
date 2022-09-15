@@ -120,17 +120,19 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 # Copy the downloaded report
 #     Put File    ${download_dir}report.zip
 
-Unzip the report
-    ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
+# Unzip the report
+#     ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
+#     Should Be Equal    ${rc}    ${0}
 
-Delete the zip file
-    Execute Command    rm *.zip
+# Delete the zip file
+#     Execute Command    rm *.zip
 
 # Delete downloaded zip
 #     Remove File    /home/pi/report.zip
 
-
+Get the report file name
+    ${report}=    Execute Command    ls
+    Set Suite Variable    ${report}
 
 
 *** Keywords ***
