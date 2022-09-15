@@ -25,7 +25,7 @@ ${url}    https://qaenvironment.eu-latest.cumulocity.com/
 ${url_tedge}    qaenvironment.eu-latest.cumulocity.com
 ${user}    qatests
 ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
-${report}    3206.c8y_TemperatureMeasurement.csv
+# ${report}    3206.c8y_TemperatureMeasurement.csv
 
 *** Tasks ***
 Install thin-edge.io on your device
@@ -131,7 +131,7 @@ Delete downloaded zip
     Remove File    /home/pi/report.zip
 
 Get the report csv
-    SSHLibrary.Get File    *.csv
+    SSHLibrary.Get File    ${report}.csv
     Execute Command    rm *.csv
 
 Read csv file to a list example test
