@@ -88,6 +88,7 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     Sleep    3s
 Connect the device
 
+
     ${output}=    Execute Command    sudo tedge disconnect c8y
 
 
@@ -147,7 +148,14 @@ Download the measurements report file
     Click    //span[normalize-space()='All devices']
     Sleep    2s
     Wait For Elements State    div[ng-class='truncated-cell-content']    visible
-    Click    //a[@title='${DeviceID}']
+
+
+
+    Click    //a[@title='ST15092022095400']
+    # Click    //a[@title='${DeviceID}']
+
+
+
     Wait For Elements State    //span[normalize-space()='Measurements']    visible
     Click    //span[normalize-space()='Measurements']
     Wait For Elements State    //body/c8y-ui-root[@id='app']/c8y-bootstrap/div/div/div/div[@id='c8y-legacy-view']/div[@ng-if='vm.widthSet && vm.authState.hasAuth']/div[@ng-controller='measurementsCtrl as ctrl']/c8y-list-pagination[@items='supportedMeasurements']/div/div/c8y-measurements-fragment-chart[@fragment='m']/div/div/c8y-chart[@datapoints='vm.dataPoints']/div[2]//*[name()='svg'][1]/*[name()='rect'][1]
