@@ -122,14 +122,10 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 
 Unzip the report
     # Execute Command    unzip report.zip
-    Execute Command    rm *.zip
+    # Execute Command    rm *.zip
 
-# Delete the zip file
-#     Execute Command    rm *.zip
-
-# Delete downloaded zip
-#     Remove File    /home/pi/report.zip
-
+Delete downloaded zip
+    Run    rm report.zip
 # Get the report file name
 #     ${report}=    Execute Command    ls
 #     Set Suite Variable    ${report}
