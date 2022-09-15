@@ -122,10 +122,11 @@ Sending your first telemetry data
     #Cumulocity SmartRest message to be understood as a temperature of 20 Celsius.
     ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
-    #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
-    #You should observe a "temperature measurement" graph with the new data point.
+
 
 Download the measurements report file
+    #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
+    #You should observe a "temperature measurement" graph with the new data point.
     New Page    ${url}
     Wait For Elements State    //button[normalize-space()='Log in']    visible
     Click    //button[normalize-space()='Agree and proceed']
@@ -154,9 +155,9 @@ Download the measurements report file
     ${file_obj}=    Wait For  ${dl_promise}
     Sleep    5s
 
-Copy the downloaded report
-    ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
+# Copy the downloaded report
+#     ${rc}=    Execute Command    Put File ${download_dir}report.zip    return_stdout=False    return_rc=True
+#     Should Be Equal    ${rc}    ${0}
 
    
 Unzip the report
