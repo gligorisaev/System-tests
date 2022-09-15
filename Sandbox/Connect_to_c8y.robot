@@ -29,8 +29,8 @@ ${pass}    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+
 
 *** Tasks ***
 
-Go to root
-    Run    cd
+# Go to root
+#     Run    cd
 Install thin-edge.io on your device
     Create Timestamp
     Define Device id
