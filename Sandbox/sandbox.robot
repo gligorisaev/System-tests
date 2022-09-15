@@ -121,7 +121,7 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     Put File    ${download_dir}report.zip
 
 Unzip the report
-    Run    unzip report.zip
+    Run    unzip /home/pi/report.zip
 #     Run    mv *.csv /home/pi/download
 
 # Delete the zip file
