@@ -1,4 +1,5 @@
-#Command to execute:    robot -d \results --timestampoutputs --log build_install_rpi.html --report NONE --variable BUILD:840 --variable HOST:192.168.1.130 /thin-edge.io/tests/RobotFramework/tasks/build_install_thinedge.robot
+#Command to execute:    robot -d \results --timestampoutputs --log health_tedge_mapper.html --report NONE health_tedge_mapper.robot
+
 *** Settings ***
 Library    Browser
 Library    SSHLibrary
@@ -7,6 +8,7 @@ Library    CryptoLibrary    variable_decryption=True
 Library    Dialogs
 Library    String
 Library    CSVLibrary
+Library    OperatingSystem
 Suite Setup            Open Connection And Log In
 Suite Teardown         SSHLibrary.Close All Connections
 
@@ -23,39 +25,19 @@ ${url}    https://qaenvironment.eu-latest.cumulocity.com/
 ${url_tedge}    qaenvironment.eu-latest.cumulocity.com
 ${user}    qatests
 ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
+# ${report}    3206.c8y_TemperatureMeasurement.csv
 
-*** Test Cases ***
-    #The very first step to enable `thin-edge.io` is to connect your device to the cloud.
-    #This is a 10 minutes operation to be done only once.
-    #It establishes a permanent connection from your device to the cloud end-point.
-    #This connection is secure (encrypted over TLS), and the two peers are identified by x509 certificates.
-    #Sending data to the cloud will then be as simple as sending data locally.
-    #Before you try to connect your device to Cumulocity IoT, you need:
-    #The url of the endpoint to connect (e.g. `eu-latest.cumulocity.com`). ${url} 
-    #Your credentials to connect Cumulocity:
-    #Your tenant identifier (e.g. `t00000007`), a user name (${user}) and password (${pass}).
-    #None of these credentials will be stored on the device.
-    #These are only required once, to register the device.
-    #If not done yet, 
+*** Tasks ***
 Install thin-edge.io on your device
     Create Timestamp
     Define Device id
     Uninstall tedge with purge
     Clear previous downloaded files if any
     Install_thin-edge
-    #Configure the device
-    #To connect the device to the Cumulocity IoT, one needs to set the URL of your Cumulocity IoT tenant and the root certificate as below.
 Set the URL of your Cumulocity IoT tenant
     ${rc}=    Execute Command    sudo tedge config set c8y.url ${url_tedge}    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
-# Set the path to the root certificate if necessary. The default is /etc/ssl/certs.
-#     ${rc}=    Execute Command    $ sudo tedge config set c8y.root.cert.path /etc/ssl/certs    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
-#     Should Be Equal    ${rc}    ${0}
-    #This will set the root certificate path of the Cumulocity IoT. In most of the Linux flavors, the certificate will be present in /etc/ssl/certs.
-    #A single argument is required: an identifier for the device. 
-    #This identifier will be used to uniquely identify your devices among others in your cloud tenant. 
-    #This identifier will be also used as the Common Name (CN) of the certificate. 
-    #Indeed, this certificate aims to authenticate that this device is actually the device with that identity.
+
 Create the certificate
     ${rc}=    Execute Command    sudo tedge cert create --device-id ${DeviceID}    return_stdout=False    return_rc=True
     Should Be Equal    ${rc}    ${0}
@@ -67,32 +49,13 @@ Create the certificate
     Should Contain    ${output}    Valid from:
     Should Contain    ${output}    Valid up to:
     Should Contain    ${output}    Thumbprint:
-    #You may notice that the issuer of this certificate is the device itself. This is a self-signed certificate. 
-    #To use a certificate signed by your Certificate Authority, see the reference guide of tedge cert.
-    #The tedge cert create command creates a self-signed certificate which can be used for testing purpose.
 
-    #Make the device trusted by Cumulocity
-    #For a certificate to be trusted by Cumulocity, one needs to add the certificate of the signing authority to the list of 
-    #trusted certificates. In the Cumulocity GUI, navigate to "Device Management/Management/Trusted certificates" in order to 
-    #see this list for your Cumulocity tenant. 
-    #Here, the device certificate is self-signed and has to be directly trusted by Certificate. This can be done:
-    #either with the GUI: upload the certificate from your device (/etc/tedge/device-certs/tedge-certificate.pem) to your 
-    #tenant "Device Management/Management/Trusted certificates".
-    #or using the 
-tedge cert upload c8y command.
-    #$ sudo tedge cert upload c8y --user <username>
-    #To upload the certificate to cumulocity this user needs to have "Tenant management" admin rights. 
-    #If you get an error 503 here, check the appropriate rights in cumulocity user management.
+tedge cert upload c8y command
     Write   sudo tedge cert upload c8y --user ${user}
     Write    ${pass}
     Sleep    3s
+
 Connect the device
-    #Now, you are ready to run tedge connect c8y. This command configures the MQTT broker:
-    #-to establish a permanent and secure connection to the cloud,
-    #-to forward local messages to the cloud and vice versa.
-    #Also, if you have installed tedge_mapper, this command starts and enables the tedge-mapper-c8y systemd service. 
-    #At last, it sends packets to Cumulocity to check the connection. If your device is not yet registered, 
-    #you will find the digital-twin created in your tenant after tedge connect c8y!
     ${output}=    Execute Command    sudo tedge connect c8y    #You can then check the content of that certificate.
     Sleep    3s
     Should Contain    ${output}    Checking if systemd is available.
@@ -117,16 +80,10 @@ Connect the device
     Should Contain    ${output}    tedge-agent service successfully started and enabled!
 
 Sending your first telemetry data
-    #Sending data to Cumulocity is done using MQTT over topics prefixed with c8y. Any messages sent to one of these topics will be 
-    #forwarded to Cumulocity. The messages are expected to have a format specific to each topic. Here, we use tedge mqtt pub a raw 
-    #Cumulocity SmartRest message to be understood as a temperature of 20 Celsius.
     ${rc}=    Execute Command    tedge mqtt pub c8y/s/us 211,20    return_stdout=False    return_rc=True    #Set the URL of your Cumulocity IoT tenant
     Should Be Equal    ${rc}    ${0}
 
-
 Download the measurements report file
-    #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
-    #You should observe a "temperature measurement" graph with the new data point.
     New Page    ${url}
     Wait For Elements State    //button[normalize-space()='Log in']    visible
     Click    //button[normalize-space()='Agree and proceed']
@@ -144,12 +101,7 @@ Download the measurements report file
     Sleep    2s
     Wait For Elements State    div[ng-class='truncated-cell-content']    visible
 
-
-
-    Click    //a[@title='ST15092022095400']
-    # Click    //a[@title='${DeviceID}']
-
-
+    Click    //a[@title='${DeviceID}']
 
     Wait For Elements State    //span[normalize-space()='Measurements']    visible
     Click    //span[normalize-space()='Measurements']
@@ -157,41 +109,44 @@ Download the measurements report file
     Click    //span[contains(text(),'More…')]
     Click    (//button[@title='Download as CSV'][normalize-space()='Download as CSV'])[2]
     Wait For Elements State    //a[normalize-space()='Download']    visible
-    ${dl_promise}          Promise To Wait For Download    ${download_dir}report.zip
+    ${dl_promise}          Promise To Wait For Download    /home/pi/report.zip
     Click    //a[normalize-space()='Download']
     ${file_obj}=    Wait For  ${dl_promise}
     Sleep    5s
 
 Copy the downloaded report
-
     Put File    ${download_dir}report.zip
-    
 
-   
 Unzip the report
-    ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
-
-
-Delete the zip file
+    Execute Command    unzip report.zip
     Execute Command    rm *.zip
-
 Get the report file name
     ${report}=    Execute Command    ls
     Set Suite Variable    ${report}
 
-Read csv file to a list example test
-    @{list}=  Read Csv File To List    ${download_dir}${report}
+Delete downloaded zip
+    Remove File    /home/pi/report.zip
+
+Get the report csv
+    SSHLibrary.Get File    ${report}
+    Execute Command    rm *.csv
+
+Read csv file and validate
+    @{list}=  Read Csv File To List    /home/pi/${report}
     Log  ${list[0]}
     Log  ${list[1]}
+    Should Contain    ${list[1]}    ${DeviceID}
+    Should Contain    ${list[1]}    c8y_TemperatureMeasurement.T
+    Should Contain    ${list[1]}    20
 
-
-
+Remove csv file
+    Remove File    /home/pi/${report}
 
 *** Keywords ***
 Open Connection And Log In
    Open Connection     ${HOST}
    Login               ${USERNAME}        ${PASSWORD}
+
 Create Timestamp    #Creating timestamp to be used for Device ID
         ${timestamp}=    get current date    result_format=%d%m%Y%H%M%S
         log    ${timestamp}
