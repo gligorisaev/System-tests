@@ -131,11 +131,16 @@ Get the report csv
     SSHLibrary.Get File    ${report}
     Execute Command    rm *.csv
 
-Read csv file to a list example test
+Read csv file and validate
     @{list}=  Read Csv File To List    /home/pi/${report}
     Log  ${list[0]}
     Log  ${list[1]}
+    Should Contain    ${list[1]}    ${DeviceID}
+    Should Contain    ${list[1]}    c8y_TemperatureMeasurement.T
+    Should Contain    ${list[1]}    20
 
+Remove csv file
+    Remove File    /home/pi/${report}
 
 *** Keywords ***
 Open Connection And Log In
