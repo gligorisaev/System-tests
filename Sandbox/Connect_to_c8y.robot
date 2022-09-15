@@ -168,7 +168,7 @@ Download the measurements report file
     Sleep    5s
 
 Copy the downloaded report
-    Put File ${download_dir}report.zip
+    Put File    ${download_dir}report.zip
     
 
    
