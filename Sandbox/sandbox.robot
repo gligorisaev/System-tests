@@ -117,12 +117,12 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 #     ${file_obj}=    Wait For  ${dl_promise}
 #     Sleep    5s
 
-# Copy the downloaded report
-#     Put File    ${download_dir}report.zip
+Copy the downloaded report
+    Put File    ${download_dir}report.zip
 
 Delete downloaded zip
 
-    Execute Command    rm report.zip
+    Remove File    /home/pi/report.zip
 
 
 
