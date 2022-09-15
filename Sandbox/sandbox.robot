@@ -35,7 +35,7 @@ Sending your first telemetry data
     # #To check that this message has been received by Cumulocity, navigate to "Device Management/Devices/All devices/<your device id>/Measurements". 
     # #You should observe a "temperature measurement" graph with the new data point.
 
-Check Measurements on c8y
+CDownload mesurements report from c8y
     New Page    ${url}
     Wait For Elements State    //button[normalize-space()='Log in']    visible
     Click    //button[normalize-space()='Agree and proceed']
@@ -69,8 +69,8 @@ Copy the downloaded report
     Put File    ${download_dir}report.zip
 
 Unzip the report
-    ${rc}=    Execute Command    unzip report.zip    return_stdout=False    return_rc=True
-    Should Be Equal    ${rc}    ${0}
+    Execute Command    unzip report.zip
+
 
 Delete the zip file
     Execute Command    rm *.zip
