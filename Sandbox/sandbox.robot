@@ -134,7 +134,7 @@ Get the report csv
     Execute Command    rm *.csv
 
 Read csv file and validate
-    @{list}=  Read Csv File To List    /home/pi/${report}
+    @{list}=  Read Csv File To List    ${report}
     Log  ${list[0]}
     Log  ${list[1]}
     Should Contain    ${list[1]}    ${DeviceID}
