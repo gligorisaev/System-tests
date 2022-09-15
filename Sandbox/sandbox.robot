@@ -122,7 +122,7 @@ ${pass}    Alex@210295    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488
 
 Unzip the report
     # Run    sudo unzip report.zip
-    Run    mv *.zip /home/pi/download
+    Run    mv *.zip /download
 
 # Delete the zip file
 #     Execute Command    rm *.zip
