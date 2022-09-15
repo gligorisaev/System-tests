@@ -125,7 +125,7 @@ Unzip the report
     # Execute Command    rm *.zip
 
 Delete downloaded zip
-    Run    rm *.zip
+    Remove File    /home/pi/report.zip
 # Get the report file name
 #     ${report}=    Execute Command    ls
 #     Set Suite Variable    ${report}
