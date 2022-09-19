@@ -12,19 +12,19 @@ Suite Teardown         SSHLibrary.Close All Connections
 *** Variables ***
 ${HOST}           
 ${USERNAME}       pi
-${PASSWORD}       crypt:eTWNWBNipKUxlEqYZDOXD64GmSOFM3rabXFq3eO1xGSeMZCW10HStMMr0lpuUXY0u7OTTT8WPtU=    #crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
+${PASSWORD}       thinedge    #crypt:eTWNWBNipKUxlEqYZDOXD64GmSOFM3rabXFq3eO1xGSeMZCW10HStMMr0lpuUXY0u7OTTT8WPtU=    #crypt:LO3wCxZPltyviM8gEyBkRylToqtWm+hvq9mMVEPxtn0BXB65v/5wxUu7EqicpOgGhgNZVgFjY0o=
 ${DeviceID}       
 ${Version}        0.*
 ${download_dir}    /home/pi/
 ${url_dow}    https://github.com/thin-edge/thin-edge.io/actions
-${user_git}    crypt:Yd5+TyPuE7qA9fjoVNLT4jP7G3e8sC4tIRpp7Zhl7Dq+BgPHsoMnOI3WgkQcuibuBSj0Im6yfpDoqwGjuur8cHzU680Z    #crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    
-${pass_git}    crypt:pbm9SK7lZnwMuEGzQqpwq+gCLrhS2E2QbspN9Y78tkb6usgBCCAyWJQnyTth62lqg8Xztxy+N4CeAL6W6Mvvhg==    #crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
+${user_git}    gligorisaev@gmail.com    #crypt:Yd5+TyPuE7qA9fjoVNLT4jP7G3e8sC4tIRpp7Zhl7Dq+BgPHsoMnOI3WgkQcuibuBSj0Im6yfpDoqwGjuur8cHzU680Z    #crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKPABmxKk8K1a8NsI5QH0w8EmT8GWeqrFwX2    
+${pass_git}    IanIsaev24082021    #crypt:pbm9SK7lZnwMuEGzQqpwq+gCLrhS2E2QbspN9Y78tkb6usgBCCAyWJQnyTth62lqg8Xztxy+N4CeAL6W6Mvvhg==    #crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
 ${FILENAME}
 ${DIRECTORY}    /home/pi/
 ${url}    https://thin-edge-io.eu-latest.cumulocity.com/
 ${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${user}    systest_preparation
-${pass}    crypt:MLODwWeesDRL/be+hgZJmOh7kLcm8qbg5dJaVt1IBATaqAmyCKLc7er6GmjAguPtQSnWXjquT1JYT3w=    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
+${pass}    Alex@210295    #crypt:MLODwWeesDRL/be+hgZJmOh7kLcm8qbg5dJaVt1IBATaqAmyCKLc7er6GmjAguPtQSnWXjquT1JYT3w=    #crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
 ${BUILD}
 ${ARCH}
 ${dir}
