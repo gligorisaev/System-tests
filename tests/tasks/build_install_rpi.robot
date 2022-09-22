@@ -21,6 +21,8 @@ ${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKP
 ${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
 ${FILENAME}
 ${DIRECTORY}    /home/pi/
+${url}    https://thin-edge-io.eu-latest.cumulocity.com/
+${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${url}    https://qaenvironment.eu-latest.cumulocity.com/
 ${url_tedge}    qaenvironment.eu-latest.cumulocity.com
 ${user}    systest_preparation
@@ -146,7 +148,7 @@ Set c8y URL
 Upload certificate    
     Write   sudo tedge cert upload c8y --user ${user}
     Write    ${pass}
-    Sleep    20s
+    Sleep    30s
 
 Connect to c8y
     ${output}=    Execute Command    sudo tedge connect c8y    #You can then check the content of that certificate.
