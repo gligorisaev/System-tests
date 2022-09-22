@@ -148,7 +148,7 @@ Set c8y URL
 Upload certificate    
     Write   sudo tedge cert upload c8y --user ${user}
     Write    ${pass}
-    Sleep    30s
+    Sleep    60s
 
 Connect to c8y
     ${output}=    Execute Command    sudo tedge connect c8y    #You can then check the content of that certificate.
