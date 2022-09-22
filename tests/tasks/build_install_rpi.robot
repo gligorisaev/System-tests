@@ -21,8 +21,10 @@ ${user_git}    crypt:3Uk76kNdyyYOXxus2GFoLf8eRlt/W77eEkcSiswwh04HNfwt0NlJwI7ATKP
 ${pass_git}    crypt:IcTs6FyNl16ThjeG6lql0zNTsjCAwg5s6PhjRrcEwQ9DVHHRB4TjrGcpblR6R1v7j9oUlL3RzwxGpfBfsijVnQ==    
 ${FILENAME}
 ${DIRECTORY}    /home/pi/
+${url}    https://thin-edge-io.eu-latest.cumulocity.com/
+${url_tedge}    thin-edge-io.eu-latest.cumulocity.com
 ${url}    https://qaenvironment.eu-latest.cumulocity.com/
-${url_tedge}    qaenvironment.eu-latest.cumulocity.com/
+${url_tedge}    qaenvironment.eu-latest.cumulocity.com
 ${user}    systest_preparation
 ${pass}    crypt:34mpoxueRYy/gDerrLeBThQ2wp9F+2cw50XaNyjiGUpK488+1fgEfE6drOEcR+qZQ6dcjIWETukbqLU=    
 ${BUILD}
